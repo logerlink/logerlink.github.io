@@ -71,7 +71,7 @@
             <script src="../../js/markdown.min.js"></script>
             <script>
                 fetch('../../mk/2020/cef_mutilTab.md')
-                .then(res=>res.blob())
+                .then(res=>res.text())
                 .then((res)=>{
                     document.querySelector('.container .content').innerHTML = markdown.toHTML(res)
                 })
