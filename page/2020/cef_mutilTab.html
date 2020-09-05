@@ -68,11 +68,12 @@
                     </div>
                 </article>
             </div>
-            <script src="../../js/marked.js"></script>
+            <script src="../../js/markdown.min.js.js"></script>
             <script>
-                fetch('../../mk/2020/cef_mutilTab.md').then((res)=>{
-                            console.log(res)
-                    document.querySelector('.container .content').innerHTML = marked(res)
+                fetch('../../mk/2020/cef_mutilTab.md')
+                .then(res=>res.blob())
+                .then((res)=>{
+                    document.querySelector('.container .content').innerHTML = markdown.toHTML(res)
                 })
             </script>
         </div>
