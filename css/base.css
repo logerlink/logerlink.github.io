@@ -6,14 +6,15 @@
     font-family:Console;
 }
 .col-left{
-    background: #fff;
     width: 300px;
     position: fixed;
-    opacity: 1;
-    transition: all .2s ease-in;
     height: 100%;
-    z-index: 999;
+    z-index: 666;
+    background: url(../Image/天空之海.jpeg) no-repeat;
+    opacity: .8;
+    transition: all 1s ease 0s;
 }
+
 .col-right{
     position: absolute;
     right: 0;
@@ -21,21 +22,181 @@
     background: #eaeaea;
     left: 300px;
     width: auto;
+    z-index: 999;
+    transition: all 1s ease 0s;
 }
 .container article{
     margin: 20px;
     background: #fff;
 }
 .container header{
-    display: flex;
     border-left: 5px solid #4d4d4d;
     padding: 30px 0 15px 25px;
     padding-left: 7.6923%;
 }
 .container header h1{
-    flex: 90% 0 0;
     color:#696969;
-    font-weight: 300;
-    line-height: 5px;
+    font-weight: 100;
     border-bottom:0;
+}
+
+<!--水滴-->
+.col-left .wave {
+    position: relative;
+    opacity: 0;
+    top: 100px;
+    width: 500px;
+    height: 100px;
+    -moz-border-radius: 300px / 150px;
+    -webkit-border-radius: 300px / 150px;
+    border-radius: 300px / 150px;
+    -moz-animation-name: ripple;
+    -webkit-animation-name: ripple;
+    animation-name: ripple;
+    -moz-animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+.col-left  .wave:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    top: -5px;
+    left: -5px;
+      width: 2px;
+      height: 1px;
+    border: #FFF 5px solid;
+      -moz-border-radius: 300px / 150px;
+      -webkit-border-radius: 300px / 150px;
+      border-radius: 300px / 150px;
+    -moz-animation-name: ripple-2;
+    -webkit-animation-name: ripple-2;
+    animation-name: ripple-2;
+    -moz-animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes ripple {
+      from {
+        opacity: 1;
+      }
+      to {
+        width: 600px;
+        height: 300px;
+        border-width: 1px;
+        top: -100px;
+        opacity: 0;
+      }
+  }
+  @keyframes ripple-2 {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    100% {
+      width: 200px;
+      height: 100px;
+      border-width: 1px;
+      top: 100px;
+      left: 200px;
+    }
+  }
+/* <!--分类--> */
+.col-left .category{
+    position: fixed;
+    bottom: 0px;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    display:flex;
+    align-content: flex-start;
+    flex-wrap:wrap;
+}
+
+.col-left .circle{
+    margin: 20px;
+    opacity: .8;
+    border-radius: 60px;
+    background-color: #2b93e6;
+    text-align: center;
+    color: #fff;
+    transition: all 1s ease 0s;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.col-left .circle p{
+    padding: 0;
+    margin: 0;
+}
+
+.col-left .circle span{
+    display: block;
+    font-size: 12px;
+    transition: all 1s ease 0s;
+}
+/* <!--分类-大--> */
+.circle.circle-max{
+    width: 77px;
+    height: 77px;
+    line-height: 77px;
+}
+.circle.circle-max:hover{
+    width: 88px;
+    height: 88px;
+}
+.circle.circle-max span{
+    margin-top: -55px;
+}
+.circle.circle-max:hover span{
+    margin-top: -45px;
+}
+/* <!--分类-小--> */
+.circle.circle-min{
+    font-size: 8px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+}
+.circle.circle-min:hover{
+    width: 55px;
+    height: 55px;
+}
+.circle.circle-min span{
+    margin-top: -30px;
+    font-size: 8px;
+}
+.circle.circle-min:hover span{
+    margin-top: -20px;
+}
+/* <!--分类-中--> */
+.circle.circle-mid{
+    font-size: 8px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.circle.circle-mid:hover{
+    width: 70px;
+    height: 70px;
+}
+.circle.circle-mid span{
+    margin-top: -45px;
+    font-size: 8px;
+}
+.circle.circle-mid:hover span{
+    margin-top: -30px;
 }
