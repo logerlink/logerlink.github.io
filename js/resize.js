@@ -13,6 +13,9 @@ export function resizeHandler(){
         }
         let col_right = document.querySelector('.col-right') || ''
         if(col_right !== '') col_right.style.left = 0
+
+        let article = document.querySelector('.container article') || ''
+        if(article !== '') article.style.margin = 0
         
     }else{
         //左侧要了
@@ -27,5 +30,8 @@ export function resizeHandler(){
         }
         let col_right = document.querySelector('.col-right') || ''
         if(col_right !== '') col_right.style.left = '300px'
+
+        let article = document.querySelector('.container article') || ''
+        if(article !== '') article.style.margin = '20px'
     }
 }
