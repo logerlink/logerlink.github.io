@@ -16,6 +16,12 @@ const categoryArr = [
         cate:'1004',
         count:1,
         className:'circle-mid'
+    },
+    {
+        title:'VUE',
+        cate:'1005',
+        count:1,
+        className:'circle-min'
     }
 ]
 
