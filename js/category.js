@@ -27,6 +27,13 @@ var article = [
         date:'2020-10-08',
         url:'/page/2020/js_question.html'
     },
+    {
+        title:'.Net MVC + Vue 初体验，MVC视图引入vue组件（不前后端分离）',
+        cate:'1005',
+        cateName:'VUE',
+        date:'2020-10-09',
+        url:'/page/2020/netMvcVueTest.html'
+    },
     
 ]
 
