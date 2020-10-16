@@ -34,6 +34,14 @@ var article = [
         date:'2020-10-09',
         url:'/page/2020/netMvcVueTest.html'
     },
+    {
+        title:'.Net Core使用EF连接数据库的两种方式，CodeFirst & DBFirst',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2020-10-16',
+        url:'/page/2020/.NetCore_DBFirst_CodeFirst.html'
+    },
+    
     
 ]
 

@@ -22,7 +22,14 @@ const categoryArr = [
         cate:'1005',
         count:1,
         className:'circle-min'
-    }
+    },
+    {
+        title:'.Net Core',
+        cate:'1006',
+        count:1,
+        className:'circle-max'
+    },
+    
 ]
 
 export function initCategory(){
