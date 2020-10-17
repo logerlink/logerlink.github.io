@@ -39,7 +39,7 @@ var article = [
         cate:'1006',
         cateName:'.Net Core',
         date:'2020-10-16',
-        url:'/page/2020/.NetCore_DBFirst_CodeFirst.html'
+        url:'/page/2020/NetCore_DBFirst_CodeFirst.html'
     },
     
     
