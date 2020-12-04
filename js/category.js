@@ -41,6 +41,13 @@ var article = [
         date:'2020-10-16',
         url:'/page/2020/NetCore_DBFirst_CodeFirst.html'
     },
+    {
+        title:'最近',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2020-12-04',
+        url:'/page/2020/20201204.html'
+    },
     
     
 ]
