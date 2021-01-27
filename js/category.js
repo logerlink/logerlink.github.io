@@ -48,6 +48,13 @@ var article = [
         date:'2020-12-04',
         url:'/page/2020/20201204.html'
     },
+    {
+        title:'.Net Core在线预览打印PDF，JsReport的使用',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2021-01-27',
+        url:'/page/2021/NetCore_Jsreport.html'
+    },
     
     
 ]
