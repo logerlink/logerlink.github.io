@@ -59,7 +59,7 @@ var article = [
         title:'大年三十',
         cate:'1001',
         cateName:'杂记',
-        date:'2021-01-11',
+        date:'2021-02-11',
         url:'/page/2021/0211.html'
     },
     
