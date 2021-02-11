@@ -55,6 +55,13 @@ var article = [
         date:'2021-01-27',
         url:'/page/2021/NetCore_Jsreport.html'
     },
+    {
+        title:'大年三十',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2021-01-11',
+        url:'/page/2021/0211.html'
+    },
     
     
 ]
