@@ -2,7 +2,7 @@ const categoryArr = [
     {
         title:'杂记',
         cate:'1001',
-        count:3,
+        count:4,
         className:'circle-max'
     },
     {
