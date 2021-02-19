@@ -29,6 +29,12 @@ const categoryArr = [
         count:2,
         className:'circle-max'
     },
+    {
+        title:'Linux',
+        cate:'1007',
+        count:1,
+        className:'circle-min'
+    },
     
 ]
 

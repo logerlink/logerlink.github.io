@@ -62,6 +62,13 @@ var article = [
         date:'2021-02-11',
         url:'/page/2021/0211.html'
     },
+    {
+        title:'Linux整理',
+        cate:'1007',
+        cateName:'Linux',
+        date:'2021-02-19',
+        url:'/page/2021/Linux.html'
+    },
     
     
 ]
