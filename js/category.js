@@ -69,8 +69,13 @@ var article = [
         date:'2021-02-19',
         url:'/page/2021/Linux.html'
     },
-    
-    
+    {
+        title:'CentOS 7和CentOS 6的简单比较',
+        cate:'1007',
+        cateName:'Linux',
+        date:'2021-02-22',
+        url:'/page/2021/ComparisonOfCentOS7And6.html'
+    },
 ]
 
 
