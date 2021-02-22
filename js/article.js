@@ -35,7 +35,6 @@ const categoryArr = [
         count:1,
         className:'circle-min'
     },
-    
 ]
 
 export function initCategory(){
