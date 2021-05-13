@@ -74,7 +74,7 @@ post请求，后台返回流数据，前端处理再通过点击隐藏链接，�
 <button class="btn-post">Post download</button><br />
 ```
 
-<img src="C:\Users\loger\Desktop\GetPost下载.gif" alt="GetPost下载"/>
+<img src="https://i.loli.net/2021/05/13/65YalHWRNjXd8Dq.gif" alt="GetPost下载"/>
 
 ### 上传文件
 
