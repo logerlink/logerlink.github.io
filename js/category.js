@@ -91,7 +91,7 @@ var article = [
  for (let i = 0; i < data.length - 1; i++) {
      for (let j = 0; j < data.length - 1 - i; j++) {
          console.log(Date.parse(data[j][p]));
-         if (Date.parse(data[j][p]) > Date.parse(data[j+1][p])) {
+         if (Date.parse(data[j][p]) < Date.parse(data[j+1][p])) {
              var temp = data[j];
              data[j] = data[j + 1];
              data[j + 1] = temp;
