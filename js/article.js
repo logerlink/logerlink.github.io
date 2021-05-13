@@ -26,7 +26,7 @@ const categoryArr = [
     {
         title:'.Net Core',
         cate:'1006',
-        count:2,
+        count:3,
         className:'circle-max'
     },
     {
