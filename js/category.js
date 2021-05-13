@@ -76,6 +76,13 @@ var article = [
         date:'2021-02-22',
         url:'/page/2021/ComparisonOfCentOS7And6.html'
     },
+    {
+        title:'.Net Core常见的文件下载功能和文件上传功能',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2021-05-13',
+        url:'/page/2021/NetCoreDownLoad.html'
+    },
 ]
 
 
