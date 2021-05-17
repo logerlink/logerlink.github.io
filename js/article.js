@@ -32,7 +32,7 @@ const categoryArr = [
     {
         title:'Linux',
         cate:'1007',
-        count:1,
+        count:2,
         className:'circle-min'
     },
 ]
