@@ -224,5 +224,43 @@
   }
 
   .md-toc{
-    max-height: 700px;position: fixed;z-index: 999;right: 0;bottom:20px;overflow-y: scroll;
+    max-height: 700px;
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    bottom:20px;
+    overflow-y: scroll;
+    background: #f9f9f9;
+    transition: all 1s ease-in-out;
+    max-width: 95%;
+  }
+  .md-toc.toc-hidden{
+    position: fixed;
+    right: -90%;
+    bottom:20px;
+    transition: all 1s ease-in-out;
+  }
+  .md-toc-content{position: relative;}
+  .btn-toggle{
+    position: sticky !important;
+    left: 0;
+    top: 50%;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .md-toc-h3 .md-toc-inner{
+    margin-left: 2em;
+  }
+  .md-toc-h4 .md-toc-inner{
+    margin-left: 4em;
+  }
+  @media screen and (max-width: 48em){
+    .md-toc-h3 .md-toc-inner{
+      margin-left: 2em;
+    }
+    .md-toc-h4 .md-toc-inner{
+      margin-left: 4em;
+    }
   }
