@@ -35,6 +35,12 @@ const categoryArr = [
         count:2,
         className:'circle-min'
     },
+    {
+        title:'开发工具',
+        cate:'1008',
+        count:1,
+        className:'circle-mid'
+    },
 ]
 
 export function initCategory(){
