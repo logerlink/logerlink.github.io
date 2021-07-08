@@ -83,6 +83,13 @@ var article = [
         date:'2021-05-13',
         url:'/page/2021/NetCoreDownLoad.html'
     },
+    {
+        title:'git登录验证和一些小问题汇总',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-07-08',
+        url:'/page/2021/GitSSH.html'
+    },
 ]
 
 
