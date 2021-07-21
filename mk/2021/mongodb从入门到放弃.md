@@ -8,7 +8,7 @@ linux创建用户，用户名为mongo，然后切换到mongo用户
 
 原文档：[documents/MongoDB.md · Aoisama/studied - Gitee.com](https://gitee.com/AoiX/studied/blob/master/documents/MongoDB.md)
 
-pdf： [mongodb_advance.pdf](../../page/mongodb_advance.pdf) 
+pdf： [mongodb_advance.pdf](../../page/2021/mongodb_advance.pdf) 
 ## 搭建副本集
 
 一主一从一仲裁。
