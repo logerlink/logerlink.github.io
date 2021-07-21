@@ -90,6 +90,13 @@ var article = [
         date:'2021-07-08',
         url:'/page/2021/GitSSH.html'
     },
+    {
+        title:'mongodb从入门到放弃',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-07-21',
+        url:'/page/2021/mongodb_introduction.html'
+    },
 ]
 
 
