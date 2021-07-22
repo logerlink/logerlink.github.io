@@ -97,6 +97,13 @@ var article = [
         date:'2021-07-21',
         url:'/page/2021/mongodb_introduction.html'
     },
+    {
+        title:'js扁平化数据转换成树结构',
+        cate:'1004',
+        cateName:'javascript',
+        date:'2021-07-22',
+        url:'/page/2021/jsArrayToTree.html'
+    },
 ]
 
 

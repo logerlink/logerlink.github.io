@@ -14,7 +14,7 @@ const categoryArr = [
     {
         title:'JavaScript',
         cate:'1004',
-        count:1,
+        count:2,
         className:'circle-mid'
     },
     {
