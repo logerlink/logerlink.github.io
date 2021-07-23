@@ -1300,12 +1300,6 @@ sh.addShard("myshardrs01/localhost.localdomain:27018,localhost.localdomain:27118
 
 ![image-20210721112157636](https://i.loli.net/2021/07/21/Lj6hntqDNJ9HSC1.png)
 
-#### 插入时报错
-
-错误信息：'errmsg': 'E11000 duplicate key error collection: articledb.comment index: _id_ dup key: { _id: 999 }'}
-
-_id:999 主键\_Id重复了
-
 #### pymongo链接副本集集群
 
 参考：[Connection String URI Format — MongoDB Manual](https://docs.mongodb.com/manual/reference/connection-string/#std-label-connections-standard-connection-string-format)
@@ -1374,5 +1368,44 @@ use admin
 db.shutdownServer()
 ```
 
+#### mongodb插入时报错
 
+错误信息：'errmsg': 'E11000 duplicate key error collection: articledb.comment index: _id_ dup key: { _id: 999 }'}
 
+_id:999 主键\_Id重复了
+
+#### mongodb插入时自动添加\_t，\_v属性
+
+首先我们先插入一个匿名类，会自动出现\_t，\_v属性，JObject、JToken无法直接插入mongodb，<span style="color:red;">失败</span>
+
+![image-20210723140807429](https://i.loli.net/2021/07/23/4d7tPGy2MfCIjQZ.png)
+
+再改下代码，插入一个匿名类，此时不会出现\_t，\_v属性，<span style="color:red;">成功</span>
+
+```c#
+var aa = new
+            {
+                B = 1,
+                //A = JsonConvert.DeserializeObject<Dictionary<string, object>>(aObj.ToString()),   //不管用
+                //A = JObject.Parse(aObj.ToString()),       //不管用
+                A = BsonDocument.Parse(aObj.ToString())
+            };
+```
+
+![image-20210723141928683](https://i.loli.net/2021/07/23/IUp8eEkhvuZ2W6M.png)
+
+再改下代码，插入一个实体类，此时会出现\_t，\_v属性，<span style="color:red;">失败</span>
+
+![image-20210723142445747](https://i.loli.net/2021/07/23/FlkaM5HCKO98D16.png)
+
+要将对象AB插入mongodb，此时字段A需要接收的是object类型，而我们却给他传递BsonDocument类型（具体类型），虽然程序是可以正常编译执行，但是插入mongodb时，mongodb会自动帮我们指出字段A的类型，也就是自动帮我们加上\_t，\_v属性。
+
+再改下代码，插入一个实体类，并将字段A赋值匿名对象，此时不会\_t，\_v属性，但不符合逻辑，因为我们想要给A赋值为aObj对象，<span style="color:red;">失败</span>
+
+![image-20210723143442000](https://i.loli.net/2021/07/23/TOgBktl31YFU9aR.png)
+
+再改下代码，插入一个实体类，将对象AB中的字段A类型改为BsonDocument，此时不会\_t，\_v属性，<span style="color:red;">成功</span>
+
+![image-20210723143940611](https://i.loli.net/2021/07/23/PJoQt6MYV9famhr.png)
+
+如果我们把对象AB中的字段A类型改为Jobject、JToken类型也是不可以的
