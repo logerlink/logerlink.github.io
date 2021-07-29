@@ -104,6 +104,14 @@ var article = [
         date:'2021-07-22',
         url:'/page/2021/jsArrayToTree.html'
     },
+    {
+        title:'JavaScript compose、pipe、柯里化、防抖和节流大杂烩',
+        cate:'1004',
+        cateName:'javascript',
+        date:'2021-07-29',
+        url:'/page/2021/jsNote.html'
+    },
+    
 ]
 
 

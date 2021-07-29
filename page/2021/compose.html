@@ -1,0 +1,466 @@
+<html>
+    <script>
+        // /**
+        //  * 月总工资
+        // */
+        // const calculate = function(num){
+        //     return (num * 30) + 1000
+        // }
+        // let resultA = calculate(500)
+        // console.log(resultA)
+
+
+        // /**
+        //  * 月总工资
+        // */
+        // const calculateA = function(num){
+        //     return (num * 30) + 1000
+        // }
+        // /**
+        //  * 试用期月总工资
+        // */
+        // const calculateB = function(num){
+        //     return (num * 30) * 0.8
+        // }
+        // let resultA = calculateA(500)
+        // let resultB = calculateB(500)
+        // console.log(resultA,resultB)
+
+
+        // /**
+        //  * 计算工资
+        // */
+        // function calAmount(num,isAdd,isTest,isSub){
+        //     let amount = (num * 30);    //月工资
+        //     if(isAdd) amount += 1000;   //绩效工资
+        //     if(isTest) amount *= 0.8;   //是否试用期
+        //     if(isSub) amount -= 100;    //是否扣考勤
+        //     return amount
+        // }
+
+        // let resultA = calAmount(500,true,false,false)        //正式员工正常考勤
+        // let resultB = calAmount(500,false,true,true)         //试用期员工扣考勤
+        // let resultC = calAmount(500,false,false,true)      //正式员工扣考勤且无绩效
+        // console.log(resultA,resultB,resultC)     ////16000 11900 14900
+        
+        
+        // const compose = function(){
+        //     // 将接收的参数存到一个数组， args == [multiply, add]
+        //     const args = [].slice.apply(arguments);
+        //     return function(x) {
+        //         return args.reduceRight((res, cb) => cb(res), x);
+        //     }
+        // }
+        // /**
+        //  * 月总工资
+        // */
+        // const calAmount = function(num){
+        //     return (num * 30)
+        // }
+        // /**
+        //  * 绩效工资
+        // */
+        // const calAdd = function (num){
+        //     return num + 1000
+        // }
+        // /**
+        //  * 试用期月总工资
+        // */
+        // const calTestAmount = function(num){
+        //     return num * 0.8
+        // }
+        // /**
+        //  * 考勤扣除
+        // */
+        // const calsub = function(num){
+        //     return num - 100
+        // }
+        // let resultA = compose(calAdd,calAmount)(500)        //正式员工正常考勤
+        // let resultB = compose(calsub,calTestAmount,calAmount)(500)       //试用期员工扣考勤
+        // let resultC = compose(calsub,calAmount)(500)    //正式员工扣考勤且无绩效
+        // console.log(resultA,resultB,resultC)    //16000 11900 14900
+        
+
+
+
+
+        // const pipe = function(){
+        //     // 将接收的参数存到一个数组， args == [multiply, add]
+        //     const args = [].slice.apply(arguments);
+        //     return function(x) {
+        //         return args.reduce((res, cb) => cb(res), x);
+        //     }
+        // }
+        // /**
+        //  * 月总工资
+        // */
+        // const calAmount = function(num){
+        //     return (num * 30)
+        // }
+        // /**
+        //  * 绩效工资
+        // */
+        // const calAdd = function (num){
+        //     return num + 1000
+        // }
+        // /**
+        //  * 试用期月总工资
+        // */
+        // const calTestAmount = function(num){
+        //     return num * 0.8
+        // }
+        // /**
+        //  * 考勤扣除
+        // */
+        // const calsub = function(num){
+        //     return num - 100
+        // }
+
+        // let resultA = pipe(calAmount,calAdd)(500)        //正式员工正常考勤
+        // let resultB = pipe(calAmount,calTestAmount,calsub)(500)       //试用期员工扣考勤
+        // let resultC = pipe(calAmount,calsub)(500)    //正式员工扣考勤且无绩效
+        // console.log(resultA,resultB,resultC)         //16000 11900 14900
+
+
+
+        // const composePromise = (...args)=>{
+        //     const init = args.pop()
+        //     return function(...arg){
+        //         return args.reverse().reduce(function(sequence,func){
+        //             return sequence.then(function(result){
+        //                 return func.call(null,result)
+        //             })
+        //         },Promise.resolve(init.apply(null,arg)))
+        //     }
+        // }
+
+        // let ap = async(query)=>{
+        //     return new Promise((resolve,reject)=>{
+        //         //todo
+        //         console.log('开始了')
+        //         resolve(query)
+        //     })
+        // }
+        // let bp = async(res)=>{
+        //     return new Promise((resolve,reject)=>{
+        //         //todo
+        //         if(res === '200') resolve('成功了')
+        //         else reject('失败了')
+        //     })
+        // }
+        // let cp = async(res)=>{
+        //     //todo
+        //     console.log(res)
+        // }
+
+        // const composeTest = function(query){
+        //     let steps = [cp,bp, ap] // 从右向左执行
+        //     let composeFn = composePromise(...steps)
+
+        //     composeFn('200').then(res => { console.log(666) }).catch(err=>console.log(err))
+        //     // 控制台输出
+        //     // 开始了
+        //     // 成功了
+        //     // 666
+
+        //     // composeFn('201').then(res => { console.log(666) }).catch(err=>console.log(err))
+        //     // //控制台输出
+        //     // //开始了
+        //     // //失败了
+        // }
+        // composeTest('200')
+        // // composeTest('201')
+
+
+
+
+        // const aTest = async (query)=>{
+        //     try{
+        //         let res = await ap(query)
+        //         res = await bp(res)
+        //         res = await cp(res)
+        //         console.log(666)
+        //     }catch(err){
+        //         console.log(err)
+        //     }
+        // }
+        // aTest('200')
+        // // aTest('201')
+
+
+        // const bTest = async (query)=>{
+        //     ap(query)
+        //     .then(res=>bp(res))
+        //     .then(res=>cp(res))
+        //     .then(res=>console.log(666))
+        //     .catch(err=>console.log(err))
+        // }
+        // bTest('200')
+        // //bTest('201')
+
+
+    //     function f1(){
+    // 　　　　var n = 999     //n为f1函数的局部变量
+    //         nAdd = function(){
+    //             n+=1
+    //         }
+    // 　　　　function f2(){      //f2是内部函数，一个闭包
+    // 　　　　　　console.log(n)  //使用了父函数中声明的变量n
+    // 　　　　}
+    // 　　　　return f2
+    // 　　}
+
+    // 　　var result=f1();
+    //     result() // 999
+    //     nAdd()     //nAdd没有用var、let、const声明，默认为全局变量
+    //     result() // 1000 说明变量n存在内存中，并不是调用完f1()后就销毁变量n
+        
+        // function foo(){
+        //     y = 1   
+        // }
+        // var y = 0;
+        // foo()
+        // console.log(y+1)    //期望y+1等于1，可实际输出2
+
+
+        // function foo1(x){
+        //     return x+1
+        // }
+        // foo1(1)
+
+        // function foo2(x){
+        //     return "Hello!"+x
+        // }
+
+        // function foo3(x){
+        //     return x.toUpperCase()
+        // }
+
+        // let name = 'loger'
+        // let nameUpper = foo3(foo2(name))
+        
+        // console.log(nameUpper)
+
+        // //map遍历赋值，并获得新数组
+        // let arr = [1,4,7,1,3,1,7,9,2,6,4,0,5,3]
+        // let arrMap = arr.map(value=>value + 100)
+        // console.log(arrMap)
+        
+        
+        // //reduce叠加实现数组去重，并获得新数组
+        // let arr = [1,4,7,1,3,1,7,9,2,6,4,0,5,3]
+        // let arrReduce = arr.reduce((list,value)=> list.indexOf(value) != -1 ? list: [...list,value],[])
+        // let arrReduce1 = arr.reduce((list,value)=> list.indexOf(value) != -1 ? list: (list.push(value),list),[])
+        // console.log(arrReduce,arrReduce1)
+        // //[1, 4, 7, 3, 9, 2, 6, 0, 5]
+        
+        // //filter去重，并获得新数组
+        // let arr = [1,4,7,1,3,1,7,9,2,6,4,0,5,3]
+        // let arrFilter = arr.filter((value,index)=>arr.indexOf(value) == index)
+        // console.log(arrFilter)
+        // //[1, 4, 7, 3, 9, 2, 6, 0, 5]
+
+
+        // function add1(arg) {
+        //     let sum = 0;
+        //     sum += arg      //add1(1)
+        //     return function (tmarg) {
+        //         if (arguments.length == 0) {    
+        //             //add1(1)(2)(3)(4)()
+        //             return sum;
+        //         }else{
+        //             //add1(1)(2)
+        //             //add1(1)(2)(3)
+        //             //add1(1)(2)(3)(4)
+        //             sum += tmarg
+        //             return arguments.callee;    //callee属性是一个指针，指向拥有这个 arguments 对象的函数 相当于做了一个递归回调
+        //         }
+        //     }
+        // }
+        // console.log(add1(1)(2)(3)(4)())
+
+
+        // function add2(arg) {
+        //     let sum = 0;
+        //     sum = Array.prototype.slice.call(arguments).reduce((sumTemp,b) => sumTemp += b,sum); //add2(1,2)
+        //     return  function (tmarg) {
+        //         if (arguments.length == 0) {
+        //             //add2(1,2)(3,4)()
+        //             return sum;
+        //         }else{
+        //             //add2(1,2)(3,4)
+        //             sum = Array.prototype.slice.call(arguments).reduce((sumTemp,b) => sumTemp += b,sum);
+        //             return arguments.callee;
+        //         }
+        //     }
+        // }
+        // console.log(add2(1,2)(3,4)())
+
+        // function add3() {
+        //     let sum = 0;
+        //     var _args = Array.prototype.slice.call(arguments);    
+        //     var tmpf = function(){ 
+        //         if(arguments.length === 0) { 
+        //             sum = _args.reduce((a,b) => {return a + b;},sum);
+        //         }   
+        //         _args.push.apply(_args,[].slice.call(arguments));
+        //         return tmpf;
+        //     }
+        // }
+        // console.log(add3(1,2)(3,4)())
+
+
+        
+        // 定长参数
+        // function add (a, b, c, d) {
+        //     return [
+        //     ...arguments
+        //     ].reduce((a, b) => a + b)
+        // }
+        
+        // function currying (len) {
+        //     let args = []
+        //     return function _c (...newArgs) {
+        //         // 合并参数
+        //         args = [
+        //             ...args,
+        //             ...newArgs
+        //         ]
+        //         // 判断当前参数集合args的长度是否 < 目标函数fn的需求参数长度
+        //         if (args.length < len) {
+        //             // 继续返回函数
+        //             return _c
+        //         } else {
+        //             // 返回执行结果
+        //             // return fn.apply(this, args.slice(0, len))
+        //             return [...args].reduce((sum,value)=>sum + value)
+        //         }
+        //     }
+        // }
+        // let addCurry = currying(4)
+        // let total = addCurry(1)(2)(3)(4) // 同时支持addCurry(1)(2, 3)(4)该方式调用
+        // console.log(total) // 10
+        
+
+
+        // function add(a) {
+        //     function currying(b) {
+        //         a += b || 0
+        //         return currying
+        //     }
+        //     currying.toString = function () {return a}   //重写toString方法
+        //     return currying
+        // }
+
+        // let total = add(1)(2)(3)(4)
+        // alert(total) //console.log(total)   //10
+        // console.log(total+7)    //17
+
+        // let total1 = add(1)(2)(3)(4)()
+        // alert(total1) //console.log(total1)   //10
+        // console.log(total1+7)    //17
+
+
+        // function add(...arg) {
+        //     let arr = [...arguments]
+        //     function currying(params) {
+        //         arr = [
+        //             ...arr,
+        //             ...arguments
+        //         ]
+        //         return currying
+        //     }
+        //     currying.toString = ()=>{
+        //         return arr.reduce((sum,value)=>sum+value,0)
+        //     }
+        //     return currying
+        // }
+
+        // let total = add(1,2)(3,4)
+        // console.log(total+7)
+
+
+        // let total1 = add(1,2)(3,4,5)()
+        // console.log(total1+7)
+
+        // let total2 = add(1)(2)(3)(4)(5)()
+        // console.log(total2+7)
+
+        // console.log(total)
+
+        // function oldAdd(x,y) {
+        //     return x + y
+        // }
+
+        // function curryingAdd(x) {
+        //     return function currying(y) {
+        //         return x+ y
+        //     }
+        // }
+
+
+
+
+
+
+    //     function add(a) {
+	// 	var tmp = function (b) {
+	// 		a= a + b;
+	// 		return tmp;
+	// 	};
+	// 	tmp.toString = tmp.valueOf = function () {
+	// 		return a;
+	// 	};
+	// 	return tmp;
+	// }
+	// alert(add(1)(2)(3)); //6
+	// alert(add(1)(2)(3)(4)); //10
+
+
+
+
+        
+        
+        //函数柯里化
+        function aa(x,y){
+            return x+y
+        }
+        function test() {
+            console.log('ok')
+        }
+        function bb(x){
+            let timer = null
+            return function(y){
+                if (timer !== null) clearTimeout(timer)
+                timer = setTimeout(() => { console.log('ok')}, 1000)
+            }
+        }
+        
+        
+        // 防抖
+        function debounce(fn, wait) {    
+            var timeout = null;   
+            return function() {       
+                if(timeout !== null)   clearTimeout(timeout);        
+                timeout = setTimeout(() => {console.log('ok')}, 1000);    
+            }
+        }
+        let handle = debounce()
+        // // 处理函数
+        // function handle() {    
+        //     console.log(Math.random()); 
+        // }
+        // // 滚动事件
+        // window.addEventListener('scroll', debounce(handle, 1000));
+
+        // window.onload = function(){
+            // document.querySelector('input').addEventListener('click',debounce(test,1000))
+        // }
+
+    </script>
+    <body>
+        <div style="height: 1800px;width: 100%;background-color: aqua;">
+            <input type="button" value="点击" onclick="handle()"/>
+        </div>
+    </body>
+</html>

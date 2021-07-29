@@ -1,0 +1,35 @@
+<html>
+    <script>
+        function test() {
+            console.log('防抖点击' + '!!!')
+        }
+        function debounce(fn,delay) {
+            console.log('decounce执行')
+            let timer
+            return function() {
+                if(timer) clearTimeout(timer);
+                timer = setTimeout(fn,delay)  //在指定时间(delay)内仅触发一次fn事件
+            }
+        }
+        function foo() {
+            console.log(this.value + '!!!')
+        }
+        window.onload = function() {
+            //这里绑定的函数并不是debounce而是debounce内部的闭包函数  debounce仅触发一次
+            document.querySelector('.btn-debounce').addEventListener('click',debounce(test,1000))
+
+            document.querySelector('.btn').addEventListener('click',foo)
+        }
+
+        const handleDebounce = debounce(test,1000)
+    </script>
+    <body>
+        <input type="button" class="btn-debounce" value="防抖点击"/>
+        <hr/>
+        <input type="button" class="btn" value="普通点击"/>
+        <hr/>
+        <input type="button" value="防抖点击测试2" onclick="debounce(test,1000)()"/>    <!--！！！无法实现防抖  debounce每次都会触发-->
+        <hr/>
+        <input type="button" value="防抖点击测试3" onclick="handleDebounce()"/>       <!--成功  建议用addEventListener监听事件，而不是onclick直接绑定-->
+    </body>
+</html>
