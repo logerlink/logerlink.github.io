@@ -1,0 +1,41 @@
+<html>
+    <script>
+        function test(count) {
+            console.log('节流点击-'+count + '!!!')
+        }
+        //flag标识实现节流
+        function throttle(fn,delay) {
+            console.log('throttle执行')
+            let canRun = true
+            let count = 1
+            return function() {
+                if(!canRun) return false
+                canRun = false
+                setTimeout(()=>{
+                    fn(count++)
+                    canRun = true
+                },delay)
+            }
+        }
+
+        // //时间戳实现节流
+        // function throttle2(fn, delay) {
+        //     var preTime = Date.now()
+        //     return function () {
+        //         var nowTime = Date.now()
+        //         if (nowTime - preTime >= delay) {
+        //         preTime = nowTime
+        //         fn.apply(this, arguments)
+        //         }
+        //     }
+        // }
+
+        window.onload = function() {
+            //这里绑定的函数并不是throttle而是throttle内部的闭包函数  throttle仅触发一次
+            document.querySelector('.btn-throttle').addEventListener('click',throttle(test,1000))
+        }
+    </script>
+    <body>
+        <input type="button" class="btn-throttle" value="节流点击"/>
+    </body>
+</html>
