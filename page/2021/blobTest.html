@@ -1,0 +1,22 @@
+<html>
+    <script>
+        video = document.createElement('video')
+        video.setAttribute('controls','controls')
+        video.width = 900
+        video.height = 800
+     ajax('111-720.mp4', function(res){
+                         const src = URL.createObjectURL(res); 
+                         video.src = src;
+                         video.play()
+                     })
+     function ajax(url, cb) {
+                 const xhr = new XMLHttpRequest();
+                 xhr.open("get", url);
+                 xhr.responseType = "blob"; // ""|"text"-字符串 "blob"-Blob对象 "arraybuffer"-ArrayBuffer对象
+                 xhr.onload = function() {
+                     cb(xhr.response);
+                 };
+                 xhr.send();
+             }
+     </script>
+</html>
