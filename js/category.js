@@ -111,6 +111,13 @@ var article = [
         date:'2021-07-29',
         url:'/page/2021/jsNote.html'
     },
+    {
+        title:'Video——网页视频的基本样式和基本功能实现',
+        cate:'1004',
+        cateName:'javascript',
+        date:'2021-09-01',
+        url:'/page/2021/webVideo_1.html'
+    },
     
 ]
 
