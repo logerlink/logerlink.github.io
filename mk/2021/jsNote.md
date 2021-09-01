@@ -607,3 +607,44 @@ js常见的高阶函数：map,reduce,filter,sort
 比如我们限制点击事件间隔1秒执行一次，然后我们一直点击该按钮，可实际生效的事件只有4个而已，如下图
 
 ![节流演示](https://i.loli.net/2021/07/29/zilmvYXxNAu1eBr.gif)
+
+#### 防抖节流如何传递事件e和其它参数
+
+以防抖为例
+
+```javascript
+<html>
+    <body>
+        <div class="mouse-div" style="width: 80%;height: 500px;border: 1px solid #333;margin: 0 auto;"></div>
+        <script>
+            let mouseDiv = document.querySelector('.mouse-div')
+            // //一定要先定义好
+            var aaa = debounce(test, 600)
+            mouseDiv.addEventListener("click",(e)=>aaa(e,'Tom'))
+
+            function test(e,name) {
+                //我想在这里打印出e鼠标事件
+                console.log(name)
+                console.log(e)
+            }
+
+            // //正常逻辑 防抖正常 但无法传递事件或其他参数
+            // mouseDiv.addEventListener("click",debounce(test,600))
+
+            // //防抖失效  可以正常传递事件和其它参数
+            // mouseDiv.addEventListener("click",(e)=>debounce(test,600)(e,'Tom'))
+
+            //防抖
+            function debounce(fn,delay) {
+                let timer
+                return function(e,name) {
+                    if(timer) clearTimeout(timer);
+                    timer = setTimeout(() => fn.apply(this,[e,name]),delay)  //在指定时间(delay)内仅触发一次fn事件
+                }
+            }
+        </script>
+    </body>
+</html>
+```
+
+apply、call、bind参考：[JS 中 call、apply、bind 那些事 - 掘金 (juejin.cn)](https://juejin.cn/post/6844903448673173518)
