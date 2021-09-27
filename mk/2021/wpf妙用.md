@@ -1206,7 +1206,9 @@ xaml.cs
 
 ConverterParameter：传递过滤器的参数，如转换时间时，可以把时间格式（yyyy-MM-dd HH:mm:ss）传入，需要注意的是 ConverterParameter 不是依赖属性  所以不能用 Binding 来绑定值，如果非要处理两个绑定值的话，用 MultiBinding 来处理
 
-下面主要介绍Converter基本使用，converter 携带参数（ConverterParameter），converter 携带多参数（MultiBinding），converter 绑定父元素的属性（绑定父组件的值演示）。
+下面主要介绍Converter基本使用，converter 携带参数（ConverterParameter），converter 携带多参数（MultiBinding），converter 绑定父元素的属性（绑定父组件的值演示）
+
+![Converter演示](https://i.loli.net/2021/09/27/Ph7aKb9MtS6IyED.gif)
 
 xaml
 
@@ -1376,6 +1378,8 @@ Frame元素设置 NavigationUIVisibility="Hidden" ，关闭默认的导航栏
 (Page+Frame)切换时，会重置 Page 的内容。（如在page1填了表单，切换到page2，再切回page1，这时候page1的表单已经重置了）如果不希望切换菜单时重置Page，那么我们可以用一个字典把我们的Page暂存一下。
 
 Frame 的 Navigate 方法会重置 Page 内容。
+
+![PageFrame](https://i.loli.net/2021/09/27/EILQcsNnJYXAMge.gif)
 
 xaml
 
