@@ -8,7 +8,7 @@ const categoryArr = [
     {
         title:'C#',
         cate:'1002',
-        count:1,
+        count:2,
         className:'circle-min'
     },
     {

@@ -118,6 +118,13 @@ var article = [
         date:'2021-09-01',
         url:'/page/2021/webVideo_1.html'
     },
+    {
+        title:'Wpf常见例子实现及演示',
+        cate:'1002',
+        cateName:'c#',
+        date:'2021-09-27',
+        url:'/page/2021/wpfCommonDemo.html'
+    },
     
 ]
 
