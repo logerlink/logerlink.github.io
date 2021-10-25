@@ -8,8 +8,8 @@ const categoryArr = [
     {
         title:'C#',
         cate:'1002',
-        count:2,
-        className:'circle-min'
+        count:3,
+        className:'circle-mid'
     },
     {
         title:'JavaScript',
