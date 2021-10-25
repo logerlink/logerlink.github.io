@@ -125,6 +125,13 @@ var article = [
         date:'2021-09-27',
         url:'/page/2021/wpfCommonDemo.html'
     },
+    {
+        title:'Wpf实现一个最简单的守护进程',
+        cate:'1002',
+        cateName:'c#',
+        date:'2021-10-25',
+        url:'/page/2021/deamonDemo.html'
+    },
     
 ]
 
