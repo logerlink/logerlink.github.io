@@ -132,6 +132,13 @@ var article = [
         date:'2021-10-25',
         url:'/page/2021/deamonDemo.html'
     },
+    {
+        title:'window mongodb复制集全量备份与增量备份',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-11-8',
+        url:'/page/2021/mongodump_mongorestore.html'
+    },
     
 ]
 
