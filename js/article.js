@@ -38,7 +38,7 @@ const categoryArr = [
     {
         title:'开发工具',
         cate:'1008',
-        count:2,
+        count:3,
         className:'circle-mid'
     },
 ]
