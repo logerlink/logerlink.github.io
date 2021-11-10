@@ -223,6 +223,10 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
 
+  .col-left{
+    width: 300px;
+  }
+
   .md-toc{
     max-height: 700px;
     position: fixed;
@@ -230,9 +234,9 @@
     right: 0;
     bottom:20px;
     overflow-y: scroll;
-    background: #f9f9f9;
+    background: #f1f1f1;
     transition: all 1s ease-in-out;
-    max-width: 95%;
+    max-width: 90%;
   }
   .md-toc.toc-hidden{
     position: fixed;
@@ -256,11 +260,59 @@
   .md-toc-h4 .md-toc-inner{
     margin-left: 4em;
   }
+  .md-toc-item>a{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 600px;
+    margin-right: 1em;
+  }
+  .btn-toTop{
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    height: 65px;
+    width: 65px;
+    background-image: url(../Image/rocket.png);
+    background-size: 100%;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: .8;
+    transition: all .5s;
+  }
+  .btn-toTop:hover{
+    opacity: 1;
+  }
+  @media screen and (max-width: 80em){
+    .col-left{
+      width: 0px;
+    }
+    .col-right{
+      left: 0;
+    }
+    .md-toc{
+      max-height: 600px;
+    }
+  }
   @media screen and (max-width: 48em){
+    
+    .container header h1{
+      font-size: 30px;
+    }
     .md-toc-h3 .md-toc-inner{
       margin-left: 2em;
     }
     .md-toc-h4 .md-toc-inner{
       margin-left: 4em;
+    }
+    .md-toc{
+      max-height: 500px;
+    }
+    .md-toc-item>a{
+      max-width: 280px;
+    }
+    .btn-toTop{
+      width: 45px;
+      height: 45px;
     }
   }
