@@ -1,14 +1,10 @@
-import {initCategory} from './article.js'
-import {initCategoryList} from './category.js'
-import {resizeHandler,toggleTOC} from './resize.js?v=2'
+import {initCategory,initCategoryList,initTitleCate} from './article.js'
+import {toggleTOC,toTop} from './resize.js?v=2'
 
 window.onload = function(){
+    initTitleCate();
+    toTop();
     toggleTOC();
-    resizeHandler();
     initCategory();
     initCategoryList();
-}
-
-window.onresize = function(){
-    resizeHandler();
 }

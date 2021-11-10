@@ -1,4 +1,50 @@
-var article = [
+export const categoryArr = [
+    {
+        title:'杂记',
+        cate:'1001',
+        count:4,
+        className:'circle-max'
+    },
+    {
+        title:'C#',
+        cate:'1002',
+        count:3,
+        className:'circle-mid'
+    },
+    {
+        title:'JavaScript',
+        cate:'1004',
+        count:4,
+        className:'circle-mid'
+    },
+    {
+        title:'VUE',
+        cate:'1005',
+        count:1,
+        className:'circle-min'
+    },
+    {
+        title:'.Net Core',
+        cate:'1006',
+        count:3,
+        className:'circle-max'
+    },
+    {
+        title:'Linux',
+        cate:'1007',
+        count:2,
+        className:'circle-min'
+    },
+    {
+        title:'开发工具',
+        cate:'1008',
+        count:3,
+        className:'circle-mid'
+    },
+]
+
+
+export var article = [
     {
         title:'CEFSharp如何打开多标签并管理多标签',
         cate:'1002',
@@ -136,48 +182,9 @@ var article = [
         title:'window mongodb复制集全量备份与增量备份',
         cate:'1008',
         cateName:'开发工具',
-        date:'2021-11-8',
+        date:'2021-11-08',
         url:'/page/2021/mongodump_mongorestore.html'
     },
     
 ]
-
-
-//封装的日期排序方法
- function ForwardRankingDate(data, p) {
- for (let i = 0; i < data.length - 1; i++) {
-     for (let j = 0; j < data.length - 1 - i; j++) {
-         console.log(Date.parse(data[j][p]));
-         if (Date.parse(data[j][p]) < Date.parse(data[j+1][p])) {
-             var temp = data[j];
-             data[j] = data[j + 1];
-             data[j + 1] = temp;
-         }
-     }
- }
-     return data;
-}
-
-export function initCategoryList(){
-    let bgLeft = document.querySelector('.col-left')
-    let index = parseInt(Math.random() * 100);
-    bgLeft.style.backgroundPosition = index + '%'
-    bgLeft.style.backgroundSize = '190%'
-
-    let cateEl = document.querySelector('.category-list') || ''
-    if(cateEl !== ''){
-        var id = /cate=(\d+)&?/.exec(document.location.href) || ''
-        if(id.length >=2){
-            article = article.filter(item=>{
-                return item.cate === id[1]
-            })
-        }
-        var artArr = ForwardRankingDate(article,"date")
-        let html = ''
-        artArr.forEach((item)=>{
-            html+=`<p>[${item.date}] <span>[</span><a href='/category.html?cate=${item.cate}'><span>${item.cateName}</span></a><span>]</span><a href='${item.url}'><span>${item.title}</span></a></p>`;
-        })
-        cateEl.innerHTML = html
-    }
-}
 
