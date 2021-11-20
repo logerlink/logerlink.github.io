@@ -185,6 +185,20 @@ export var article = [
         date:'2021-11-08',
         url:'/page/2021/mongodump_mongorestore.html'
     },
+    {
+        title:'C#实现图片/GIF压缩、创建缩略图、添加文本水印、图像水印、解析/创建二维码、条形码功能汇总',
+        cate:'1002',
+        cateName:'c#',
+        date:'2021-11-20',
+        url:'/page/2021/ImageToolHelper.html'
+    },
+    {
+        title:'WPF简单的图片/GIF操作工具（ImageTools）演示',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-11-20',
+        url:'/page/2021/ImageTools.html'
+    },
     
 ]
 
