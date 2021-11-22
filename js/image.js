@@ -94,13 +94,14 @@ function codeCopy(codeMirrors){
         copyContent(this.parentNode.innerText)
         textCopy.classList.remove('hidden')
         setTimeout(()=>{
-            textCopy.classList.add('hidden')
+            if(!textCopy.classList.contains('hidden')) textCopy.classList.add('hidden')
         },2000);
     })
     for (let index = 0; index < codeMirrors.length; index++) {
         const element = codeMirrors[index];
         element.addEventListener('mouseenter',()=>{
             element.appendChild(btnCopy)
+            if(!textCopy.classList.contains('hidden')) textCopy.classList.add('hidden')
             element.appendChild(textCopy)
         })
         element.addEventListener('mouseleave',function(){
