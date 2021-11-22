@@ -107,8 +107,12 @@ function codeCopy(codeMirrors){
         element.addEventListener('mouseleave',function(){
             setTimeout(()=>{
                 //鼠标移出 隐藏悬浮框
-                element.removeChild(btnCopy)
-                element.removeChild(textCopy)
+                if(element.querySelector('.btn-copy')) {
+                    element.removeChild(btnCopy)
+                }
+                if(element.querySelector('.text-copy-success')) {
+                    element.removeChild(textCopy)
+                }
             },300)
         })
     }
