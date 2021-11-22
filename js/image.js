@@ -69,4 +69,77 @@ function close_img(){
     bodyEL.classList.remove('body-hidden-scroll')
 }
 
-export {lazyLoad,showImage}
+/**
+ * 初始化复制按钮
+ * @param {*} codeMirrors 代码区域
+ * 
+ */
+function codeCopy(codeMirrors){
+    /**
+     * 1.mouseover与mouseenter
+        不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
+        只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。
+        2.mouseout与mouseleave
+        不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。 
+        只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
+     */
+    const btnCopyTemp =`<span title="复制" class="btn-copy"></span>`
+    const textCopyTemp = `<span class="hidden text-copy-success">复制成功</span>`
+    let btnCopyDom = new DOMParser().parseFromString(btnCopyTemp,"text/html")
+    let btnCopy = btnCopyDom.querySelector('span')
+    let textCopyDom = new DOMParser().parseFromString(textCopyTemp,"text/html")
+    let textCopy = textCopyDom.querySelector('span')
+
+    btnCopy.addEventListener('click',function(){
+        copyContent(this.parentNode.innerText)
+        textCopy.classList.remove('hidden')
+        setTimeout(()=>{
+            textCopy.classList.add('hidden')
+        },2000);
+    })
+    for (let index = 0; index < codeMirrors.length; index++) {
+        const element = codeMirrors[index];
+        element.addEventListener('mouseenter',()=>{
+            element.appendChild(btnCopy)
+            element.appendChild(textCopy)
+        })
+        element.addEventListener('mouseleave',function(){
+            setTimeout(()=>{
+                //鼠标移出 隐藏悬浮框
+                element.removeChild(btnCopy)
+                element.removeChild(textCopy)
+            },300)
+        })
+    }
+    
+}
+
+/**
+ * 复制文本到剪贴板
+ * @param {*} text 复制的内容
+ */
+
+function copyContent(text){
+    //擦靠张鑫旭的  https://www.zhangxinxu.com/wordpress/2021/10/js-copy-paste-clipboard/
+    if (navigator.clipboard) {
+        // clipboard api 复制
+        navigator.clipboard.writeText(text);
+    } else {
+        var textarea = document.createElement('textarea');
+        document.body.appendChild(textarea);
+        // 隐藏此输入框
+        textarea.style.position = 'fixed';
+        textarea.style.clip = 'rect(0 0 0 0)';
+        textarea.style.top = '10px';
+        // 赋值
+        textarea.value = text;
+        // 选中
+        textarea.select();
+        // 复制
+        document.execCommand('copy', true);
+        // 移除输入框
+        document.body.removeChild(textarea);
+    }
+}
+
+export {lazyLoad,showImage,codeCopy}

@@ -50,10 +50,11 @@ export function initCategory(){
     if(category != ''){
         let cateHtml = ''
         categoryArr.forEach(element => {
+            let count = article.filter(x=>x.cate == element.cate).length
             cateHtml+=`
                     <a class="circle ${element.className}" href='/category.html?cate=${element.cate}'>
                         <p>${element.title}</p>
-                        <span>${element.count}</span>
+                        <span>${count}</span>
                     </a>
             `
         });

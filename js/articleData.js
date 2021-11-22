@@ -2,43 +2,36 @@ export const categoryArr = [
     {
         title:'杂记',
         cate:'1001',
-        count:4,
         className:'circle-max'
     },
     {
         title:'C#',
         cate:'1002',
-        count:3,
         className:'circle-mid'
     },
     {
         title:'JavaScript',
         cate:'1004',
-        count:4,
         className:'circle-mid'
     },
     {
         title:'VUE',
         cate:'1005',
-        count:1,
         className:'circle-min'
     },
     {
         title:'.Net Core',
         cate:'1006',
-        count:3,
         className:'circle-max'
     },
     {
         title:'Linux',
         cate:'1007',
-        count:2,
         className:'circle-min'
     },
     {
         title:'开发工具',
         cate:'1008',
-        count:3,
         className:'circle-mid'
     },
 ]
