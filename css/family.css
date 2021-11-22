@@ -320,17 +320,18 @@
     height: 100%;
   }
   /** 代码复制按钮*/
-  .CodeMirror{position: relative;}
+  .p-copy{position: absolute;right: 5px;top: 5px;height: 100%;}
   .btn-copy{
     display: inline-block; 
-    position: absolute;right: 10px;top: 0;z-index: 10;
+    position: sticky;right: 5px;top: 5px;z-index: 10;
     height: 24px;width: 24px;background-image: url(../Image/copy.png);background-size: contain;border: 0;cursor: pointer;
     transition: all 1s;
   }
 
   .text-copy-success{
     display: inline-block; 
-    position: absolute;right: 40px;top: 0;z-index: 10;
+    position: sticky;right: 40px;top: 5px;z-index: 10;
+    color: #67C23A;
   }
   .text-copy-success.hidden{
     display: none;

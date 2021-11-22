@@ -83,35 +83,45 @@ function codeCopy(codeMirrors){
         不论鼠标指针离开被选元素还是任何子元素，都会触发 mouseout 事件。 
         只有在鼠标指针离开被选元素时，才会触发 mouseleave 事件。
      */
-    const btnCopyTemp =`<span title="复制" class="btn-copy"></span>`
-    const textCopyTemp = `<span class="hidden text-copy-success">复制成功</span>`
+    const btnCopyTemp =`<span class="p-copy">
+        <span class="hidden text-copy-success">复制成功</span>
+        <span title="复制" class="btn-copy"></span>
+    </span>`
+
     let btnCopyDom = new DOMParser().parseFromString(btnCopyTemp,"text/html")
-    let btnCopy = btnCopyDom.querySelector('span')
-    let textCopyDom = new DOMParser().parseFromString(textCopyTemp,"text/html")
-    let textCopy = textCopyDom.querySelector('span')
+    let pDom = btnCopyDom.querySelector('.p-copy')
+    let btnCopy = btnCopyDom.querySelector('.btn-copy')
+    let textCopy = btnCopyDom.querySelector('.text-copy-success')
 
     btnCopy.addEventListener('click',function(){
-        copyContent(this.parentNode.innerText)
+        console.log(this.parentNode.parentNode);
+        copyContent(this.parentNode.parentNode.innerText)
         textCopy.classList.remove('hidden')
         setTimeout(()=>{
-            if(!textCopy.classList.contains('hidden')) textCopy.classList.add('hidden')
+            textCopy.classList.add('hidden')
         },2000);
     })
+
     for (let index = 0; index < codeMirrors.length; index++) {
-        const element = codeMirrors[index];
-        element.addEventListener('mouseenter',()=>{
-            element.appendChild(btnCopy)
-            if(!textCopy.classList.contains('hidden')) textCopy.classList.add('hidden')
-            element.appendChild(textCopy)
+        const element = codeMirrors[index]
+        const elementParent = element.parentNode
+        elementParent.addEventListener('mouseenter',()=>{
+            if(!elementParent.querySelector('.btn-copy')) {
+                if(!textCopy.classList.contains('hidden')){
+                    textCopy.classList.add('hidden')
+                }
+                /**
+                 * sticky修饰的元素 一定要放在开头   不然无法吸顶
+                 * sticky修饰的元素会自动忽略空白，只会根据文档高度来判断，如果用appendChild放在底部，由于高度不够的原因导致无法实现吸顶那个效果
+                 */
+                elementParent.insertBefore(pDom,element);
+            }
         })
-        element.addEventListener('mouseleave',function(){
+        elementParent.addEventListener('mouseleave',function(){
             setTimeout(()=>{
                 //鼠标移出 隐藏悬浮框
-                if(element.querySelector('.btn-copy')) {
-                    element.removeChild(btnCopy)
-                }
-                if(element.querySelector('.text-copy-success')) {
-                    element.removeChild(textCopy)
+                if(elementParent.querySelector('.p-copy')) {
+                    elementParent.removeChild(pDom)
                 }
             },300)
         })
