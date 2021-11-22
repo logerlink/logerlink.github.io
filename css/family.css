@@ -287,12 +287,14 @@
   /** 遮罩*/
   .maskLayer{ width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     position: fixed;
     z-index: 1001;
+    transition: all .5s;
   }
   .maskDiv{ 
-    margin: 50px auto;
+    margin: 0 auto;
+    margin-top: 80px;
   }
   .maskDiv img{
     height: 100%;
