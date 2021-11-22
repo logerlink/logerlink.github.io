@@ -267,6 +267,7 @@
     max-width: 600px;
     margin-right: 1em;
   }
+  /** 置顶*/
   .btn-toTop{
     position: fixed;
     right: 0;
@@ -283,6 +284,40 @@
   .btn-toTop:hover{
     opacity: 1;
   }
+  /** 遮罩*/
+  .maskLayer{ width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 1001;
+  }
+  .maskDiv{ 
+    margin: 50px auto;
+  }
+  .maskDiv img{
+    height: 100%;
+    display: list-item;
+    margin: 0 auto;
+  }
+  .maskLayer .btn-close{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    cursor: pointer;
+  }
+  .maskLayer .btn-close:hover{
+    background-color: #ddd;
+  }
+
+  .body-hidden-scroll{
+    overflow: hidden;
+    height: 100%;
+  }
+
   @media screen and (max-width: 80em){
     .col-left{
       width: 0px;
