@@ -192,6 +192,13 @@ export var article = [
         date:'2021-11-20',
         url:'/page/2021/ImageTools.html'
     },
+    {
+        title:'一些诗词记录',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2021-11-30',
+        url:'/page/2021/favoritePoem.html'
+    },
     
 ]
 
