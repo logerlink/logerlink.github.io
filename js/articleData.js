@@ -199,6 +199,13 @@ export var article = [
         date:'2021-11-30',
         url:'/page/2021/favoritePoem.html'
     },
+    {
+        title:'Win10如何限制某个程序所占用的CPU？',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-12-04',
+        url:'/page/2021/limitCPU.html'
+    },
     
 ]
 
