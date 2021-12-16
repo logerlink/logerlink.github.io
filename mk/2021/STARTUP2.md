@@ -106,7 +106,7 @@ rs.add("localhost:27010")	# 添加新节点D
 
 #### 测试一：收缩 oplog.rs 大小（无明显效果）
 
-#### 移除节点D，回到ABC原始的三个节点
+##### 移除节点D，回到ABC原始的三个节点
 
 ```shell
 rs.remove("localhost:27010")
