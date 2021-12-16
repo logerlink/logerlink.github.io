@@ -206,6 +206,14 @@ export var article = [
         date:'2021-12-04',
         url:'/page/2021/limitCPU.html'
     },
+    {
+        title:'mongodb如何避免长时间停留在 STARTUP2 状态',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2021-12-16',
+        url:'/page/2021/STARTUP2.html'
+    },
+    
     
 ]
 
