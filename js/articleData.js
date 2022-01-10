@@ -213,6 +213,14 @@ export var article = [
         date:'2021-12-16',
         url:'/page/2021/STARTUP2.html'
     },
+    {
+        title:'mongodb聚合命令的参考与演示',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2022-01-10',
+        url:'/page/2022/aggregate.html'
+    },
+    
     
     
 ]
