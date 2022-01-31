@@ -220,7 +220,13 @@ export var article = [
         date:'2022-01-10',
         url:'/page/2022/aggregate.html'
     },
-    
+    {
+        title:'大年二九除夕夜',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2022-01-31',
+        url:'/page/2022/0131.html'
+    },
     
     
 ]
