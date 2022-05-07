@@ -34,6 +34,11 @@ export const categoryArr = [
         cate:'1008',
         className:'circle-mid'
     },
+    {
+        title:'MongoDB',
+        cate:'1010',
+        className:'circle-max'
+    },
 ]
 
 
@@ -132,7 +137,7 @@ export var article = [
     {
         title:'mongodb从入门到放弃',
         cate:'1008',
-        cateName:'开发工具',
+        cateName:'MongoDB',
         date:'2021-07-21',
         url:'/page/2021/mongodb_introduction.html'
     },
@@ -173,8 +178,8 @@ export var article = [
     },
     {
         title:'window mongodb复制集全量备份与增量备份',
-        cate:'1008',
-        cateName:'开发工具',
+        cate:'1010',
+        cateName:'MongoDB',
         date:'2021-11-08',
         url:'/page/2021/mongodump_mongorestore.html'
     },
@@ -208,15 +213,15 @@ export var article = [
     },
     {
         title:'mongodb如何避免长时间停留在 STARTUP2 状态',
-        cate:'1008',
-        cateName:'开发工具',
+        cate:'1010',
+        cateName:'MongoDB',
         date:'2021-12-16',
         url:'/page/2021/STARTUP2.html'
     },
     {
         title:'mongodb聚合命令的参考与演示',
-        cate:'1008',
-        cateName:'开发工具',
+        cate:'1010',
+        cateName:'MongoDB',
         date:'2022-01-10',
         url:'/page/2022/aggregate.html'
     },
@@ -226,6 +231,20 @@ export var article = [
         cateName:'杂记',
         date:'2022-01-31',
         url:'/page/2022/0131.html'
+    },
+    {
+        title:'mongodb聚合管道中常见聚合函数的参考与演示——按顺序排序',
+        cate:'1010',
+        cateName:'MongoDB',
+        date:'2022-05-07',
+        url:'/page/2022/aggregation_operator.html'
+    },
+    {
+        title:'mongodb聚合管道中常见聚合函数的参考与演示——按类型分组区分',
+        cate:'1010',
+        cateName:'MongoDB',
+        date:'2022-05-07',
+        url:'/page/2022/aggregation_operator_group.html'
     },
     
     
