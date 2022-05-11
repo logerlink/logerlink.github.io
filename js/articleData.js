@@ -246,6 +246,13 @@ export var article = [
         date:'2022-05-07',
         url:'/page/2022/aggregation_operator_group.html'
     },
+    {
+        title:'C# for 循环中如何更高效的筛选另一个集合的数据',
+        cate:'1002',
+        cateName:'c#',
+        date:'2022-05-11',
+        url:'/page/2022/ImproveFilter.html'
+    }
     
     
 ]
