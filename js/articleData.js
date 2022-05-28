@@ -7,7 +7,7 @@ export const categoryArr = [
     {
         title:'C#',
         cate:'1002',
-        className:'circle-mid'
+        className:'circle-max'
     },
     {
         title:'JavaScript',
@@ -259,6 +259,13 @@ export var article = [
         cateName:'c#',
         date:'2022-05-27',
         url:'/page/2022/CompressUnicode.html'
+    },
+    {
+        title:'Task.Deley的妙用，简单实现一个请求超时处理',
+        cate:'1002',
+        cateName:'c#',
+        date:'2022-05-28',
+        url:'/page/2022/TaskDelay.html'
     }
     
     
