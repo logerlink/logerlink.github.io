@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="../../css/base.css"></link>
+        <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+        <title>简单记录一些Excel的实用操作</title>
+        <meta name="description" content="简单记录一些Excel的实用操作——E+ 格式的值转文本或者数字、VLOOKUP函数比较、数据透视表的使用">
+        <link href='../../css/family.css' rel='stylesheet' type='text/css' />
+        <script src="../../js/base.js" type="module"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-left">
+                <div class="wave"></div>
+                <div class="category">
+                </div>
+            </div>
+            <div class="col-right">
+                <article>
+                    <header>
+                        <h1 class="title">
+                            简单记录一些Excel的实用操作
+                        </h1>
+                        <div class="dateTime">
+                            2022-05-28
+                        </div>
+                    </header>
+                    <hr/>
+                    <div class="content">
+<div class='typora-export os-windows' >
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span class="btn-toggle">&gt;</span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n2"><a class="md-toc-inner" href="#说明">说明</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n5"><a class="md-toc-inner" href="#e-格式的值转文本或者数字">E+ 格式的值转文本或者数字</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n8"><a class="md-toc-inner" href="#双击该单元格">双击该单元格</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n13"><a class="md-toc-inner" href="#批量修改格式">批量修改格式</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n18"><a class="md-toc-inner" href="#分列转为文本">分列转为文本</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n29"><a class="md-toc-inner" href="#vlookup函数比较">VLOOKUP函数比较</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n39"><a class="md-toc-inner" href="#数据透视表">数据透视表</a></span></p></div><h4><a name="说明" class="md-header-anchor"></a><span>说明</span></h4><p><span>本文使用WPS操作，微软Office应该大差不差，仅作记录。</span></p><p><span>以下这些操作工作中比较难遇到但却很有用，尤其是数据透视表，对于数据分析，数据校验的帮助很大，可以把它理解成Sql中的聚合运算查询。</span></p><h4><a name="e-格式的值转文本或者数字" class="md-header-anchor"></a><span>E+ 格式的值转文本或者数字</span></h4><p><span>在导出数据时时，数值过长，wps会自动变成E+格式，那我们怎样将其展开变成我们能看懂的内容呢？</span></p><p><img src="https://s2.loli.net/2022/05/31/2pIRvhnGjCwfmUV.png" referrerpolicy="no-referrer" alt="image-20220531171212714"></p><h5><a name="双击该单元格" class="md-header-anchor"></a><span>双击该单元格</span></h5><p><span>当我们选中该单元格时，就可以在头上看到真实值了</span></p><p><img src="https://s2.loli.net/2022/05/31/SU7armqzpRhidDZ.png" referrerpolicy="no-referrer" alt="image-20220531171319381"></p><p><span>此时我们双击该单元格，就可以将改内容显示为</span><strong><span>文本</span></strong><span>了</span></p><p><img src="https://s2.loli.net/2022/05/31/ZCUcHBLE35YXNfv.png" referrerpolicy="no-referrer" alt="image-20220531171513701"></p><h5><a name="批量修改格式" class="md-header-anchor"></a><span>批量修改格式</span></h5><p><span>选中这些单元格—右键—选择【设置单元格格式】—左侧分类选择【自定义】—右侧类型选择【0】—确定即可</span></p><p><img src="https://s2.loli.net/2022/05/31/YgW7IVyd25XEUCs.png" referrerpolicy="no-referrer" alt="image-20220531171830365"></p><p><span>按照上面的步骤，就可以批量将这些单元格都改成</span><strong><span>数值</span></strong><span>了</span></p><p><img src="https://s2.loli.net/2022/05/31/aZ2UAqkbPx8pd9s.png" referrerpolicy="no-referrer" alt="image-20220531172033921"></p><h5><a name="分列转为文本" class="md-header-anchor"></a><span>分列转为文本</span></h5><p><span>选中这些单元格—选中菜单【数据】—点击【分列】操作</span></p><p><img src="https://s2.loli.net/2022/05/31/j56tSX3dN9Ji4sf.png" referrerpolicy="no-referrer" alt="image-20220531172349643"></p><p><span>进入分列向导，点击下一步</span></p><p><img src="https://s2.loli.net/2022/05/31/BxVDoRaUse3cLJg.png" referrerpolicy="no-referrer" alt="image-20220531172515744"></p><p><span>再点击下一步</span></p><p><img src="https://s2.loli.net/2022/05/31/DoWbwn8JpISXLgB.png" referrerpolicy="no-referrer" alt="image-20220531172543035"></p><p><span>列数据类型选择【文本】，再点击完成</span></p><p><img src="https://s2.loli.net/2022/05/31/KWrB1jsL5ID4eA6.png" referrerpolicy="no-referrer" alt="image-20220531172713066"></p><p><span>这样就可以批量转为</span><strong><span>文本</span></strong><span>了</span></p><p><img src="https://s2.loli.net/2022/05/31/3pnZV9qhTwjRoCA.png" referrerpolicy="no-referrer" alt="image-20220531172755599"></p><h4><a name="vlookup函数比较" class="md-header-anchor"></a><span>VLOOKUP函数比较</span></h4><p><span>如现在有如下名字：张三、王五、三毛、小二、老六、十一妹，我们要看一下这些名字是否包含在【Name列】中</span></p><p><span>VLOOKUP语法：VLOOKUP(指定查找的内容,查询的数据范围,列序数[,精确查询FALSE/近似查询 TRUE])。这个列序数大多为1，可以参考一下excel的自动提示，有什么就写什么</span></p><p><img src="https://s2.loli.net/2022/05/31/JWSRaIUus8kc6iB.png" referrerpolicy="no-referrer" alt="image-20220531174300711"></p><p><span>如 VLOOKUP(E2,B2:B11,1,FALSE)</span></p><p><img src="https://s2.loli.net/2022/05/31/FxqUWGIjipe5SzA.png" referrerpolicy="no-referrer" alt="image-20220531173920517"></p><p><span>如果我们要固定住查询范围，我们还需要把相对定位【B2:B11】改成绝对定位【$B$2:$B$11】。这样我们在拖动公式时，查询范围就不会随着单元格而改变了</span></p><p><img src="https://s2.loli.net/2022/05/31/kuFRbjvPolBqch4.png" referrerpolicy="no-referrer" alt="image-20220531174554484"></p><p><span>此时回车，再拖动公式就可以查看比较结果了</span></p><p><img src="https://s2.loli.net/2022/05/31/wJzgib5EATD2nlF.gif" referrerpolicy="no-referrer" alt="vlookup"></p><h4><a name="数据透视表" class="md-header-anchor"></a><span>数据透视表</span></h4><p><span>选中菜单【数据】—点击【数据透视表】操作</span></p><p><img src="https://s2.loli.net/2022/05/31/7JwfPAKQFm86gaN.png" referrerpolicy="no-referrer" alt="image-20220531180405619"></p><p><span>我们还可以自定义区域，选择生成的位置</span></p><p><img src="https://s2.loli.net/2022/05/31/JXmWUjpYMwxrnEq.png" referrerpolicy="no-referrer" alt="image-20220531180652254"></p><p><span>点击确定后就可以进到数据透视表的区域了</span></p><p><img src="https://s2.loli.net/2022/05/31/3PTjpy9fo4HSbNd.png" referrerpolicy="no-referrer" alt="image-20220531180808991"></p><p><span>如我们要按照【Gender】分组，再查看各组的数量</span></p><p><span>首先将【Gender】拖动到行区域，将【Id】拖动到值区域</span></p><p><img src="https://s2.loli.net/2022/05/31/nB7IMorhG6xWmHd.png" referrerpolicy="no-referrer" alt="image-20220531181140727"></p><p><span>点击 Id，选择【值字段设置】</span></p><p><img src="https://s2.loli.net/2022/05/31/R5yJpZDPfsBViTr.png" referrerpolicy="no-referrer" alt="image-20220531181343817"></p><p><span>选择计算类型【计数】，点击确定</span></p><p><img src="https://s2.loli.net/2022/05/31/8zXklex1KCb6QjY.png" referrerpolicy="no-referrer" alt="image-20220531181510180"></p><p><span>结果就出来了</span></p><p><img src="https://s2.loli.net/2022/05/31/nKdEHAL4btF8OW9.png" referrerpolicy="no-referrer" alt="image-20220531181550308"></p></div>
+
+
+</div>
+</div>
+</article>
+</div>
+<div class="btn-toTop"></div>
+</div>
+</body>
+</html>

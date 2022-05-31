@@ -266,6 +266,13 @@ export var article = [
         cateName:'c#',
         date:'2022-05-28',
         url:'/page/2022/TaskDelay.html'
+    },
+    {
+        title:'简单记录一些Excel的实用操作',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2022-05-31',
+        url:'/page/2022/ExcelAction.html'
     }
     
     
