@@ -293,13 +293,10 @@
     transition: all .5s;
   }
   .maskDiv{ 
-    margin: 0 auto;
-    margin-top: 80px;
-  }
-  .maskDiv img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    display: list-item;
-    margin: 0 auto;
   }
   .maskLayer .btn-close{
     position: absolute;
