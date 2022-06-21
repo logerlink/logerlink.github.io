@@ -136,7 +136,7 @@ export var article = [
     },
     {
         title:'mongodb从入门到放弃',
-        cate:'1008',
+        cate:'1010',
         cateName:'MongoDB',
         date:'2021-07-21',
         url:'/page/2021/mongodb_introduction.html'
@@ -273,6 +273,13 @@ export var article = [
         cateName:'开发工具',
         date:'2022-05-31',
         url:'/page/2022/ExcelAction.html'
+    },
+    {
+        title:' C# 记录一下值类型和引用类型的使用并踩踩坑',
+        cate:'1002',
+        cateName:'c#',
+        date:'2022-06-21',
+        url:'/page/2022/refValueType.html'
     }
     
     
