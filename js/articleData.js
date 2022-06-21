@@ -275,7 +275,7 @@ export var article = [
         url:'/page/2022/ExcelAction.html'
     },
     {
-        title:' C# 记录一下值类型和引用类型的使用并踩踩坑',
+        title:'C# 记录一下值类型和引用类型的使用并踩踩坑',
         cate:'1002',
         cateName:'c#',
         date:'2022-06-21',
