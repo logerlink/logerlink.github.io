@@ -280,6 +280,13 @@ export var article = [
         cateName:'c#',
         date:'2022-06-21',
         url:'/page/2022/refValueType.html'
+    },
+    {
+        title:'MockData.Net使用文档',
+        cate:'1002',
+        cateName:'c#',
+        date:'2022-11-18',
+        url:'/page/2022/MockDataNet.html'
     }
     
     
