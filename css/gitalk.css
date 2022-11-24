@@ -1249,3 +1249,19 @@
   }
   
   /*# sourceMappingURL=gitalk.css.map*/
+  #gitalk-container{
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 30px;
+  }
+  @media only screen and (min-width: 1400px) {
+    #gitalk-container {
+        max-width:1024px
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #gitalk-container {
+        max-width:1200px
+    }
+}
