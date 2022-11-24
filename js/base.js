@@ -1,4 +1,4 @@
-import {initCategory,initCategoryList,initTitleCate} from './article.js'
+import {initCategory,initCategoryList,initTitleCate,initComment} from './article.js'
 import {toggleTOC,toTop} from './resize.js?v=2'
 import {showImage,lazyLoad,codeCopy} from './image.js'
 
@@ -16,4 +16,7 @@ window.onload = function(){
     }
     let codeMirrors =  document.querySelectorAll('.CodeMirror')
     codeCopy(codeMirrors)
+    setTimeout(()=>{
+        initComment()
+    },2000)
 }
