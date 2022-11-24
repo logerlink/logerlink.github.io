@@ -305,8 +305,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    line-height: 40px;
+    line-height: 38px;
     cursor: pointer;
+    border: 0;
   }
   .maskLayer .btn-close:hover{
     background-color: #ddd;
