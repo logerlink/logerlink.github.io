@@ -287,6 +287,13 @@ export var article = [
         cateName:'c#',
         date:'2022-11-18',
         url:'/page/2022/MockDataNet.html'
+    },
+    {
+        title:'记一次Git乌龙事件——修改线上bug的步骤',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2022-11-29',
+        url:'/page/2022/gitReset.html'
     }
     
     
