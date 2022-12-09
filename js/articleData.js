@@ -294,6 +294,13 @@ export var article = [
         cateName:'开发工具',
         date:'2022-11-29',
         url:'/page/2022/gitReset.html'
+    },
+    {
+        title:'Redis常用命令合集',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2022-12-09',
+        url:'/page/2022/redisCmdDocs.html'
     }
     
     
