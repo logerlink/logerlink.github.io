@@ -301,6 +301,13 @@ export var article = [
         cateName:'开发工具',
         date:'2022-12-09',
         url:'/page/2022/redisCmdDocs.html'
+    },
+    {
+        title:'2023年三十晚',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2023-01-29',
+        url:'/page/2023/2023.html'
     }
     
     
