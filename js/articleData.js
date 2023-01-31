@@ -308,6 +308,13 @@ export var article = [
         cateName:'杂记',
         date:'2023-01-29',
         url:'/page/2023/2023.html'
+    },
+    {
+        title:'c#各大版本重要变更',
+        cate:'1002',
+        cateName:'c#',
+        date:'2023-01-31',
+        url:'/page/2023/CSharpNewFeat.html'
     }
     
     
