@@ -2,12 +2,12 @@ export const categoryArr = [
     {
         title:'杂记',
         cate:'1001',
-        className:'circle-max'
+        className:'circle-mid'
     },
     {
         title:'C#',
         cate:'1002',
-        className:'circle-max'
+        className:'circle-mid'
     },
     {
         title:'JavaScript',
@@ -22,7 +22,7 @@ export const categoryArr = [
     {
         title:'.Net Core',
         cate:'1006',
-        className:'circle-max'
+        className:'circle-mid'
     },
     {
         title:'Linux',
@@ -37,7 +37,12 @@ export const categoryArr = [
     {
         title:'MongoDB',
         cate:'1010',
-        className:'circle-max'
+        className:'circle-mid'
+    },
+    {
+        title:'ES',
+        cate:'1011',
+        className:'circle-mid'
     },
 ]
 
@@ -315,6 +320,20 @@ export var article = [
         cateName:'c#',
         date:'2023-01-31',
         url:'/page/2023/CSharpNewFeat.html'
+    },
+    {
+        title:'win10使用docker安装ElasticSearch',
+        cate:'1011',
+        cateName:'ElasticSearch',
+        date:'2023-02-03',
+        url:'/page/2023/docker_es.html'
+    },
+    {
+        title:'ElasticSearch 从入门到放弃',
+        cate:'1011',
+        cateName:'ElasticSearch',
+        date:'2023-02-03',
+        url:'/page/2023/ESDoc.html'
     }
     
     
