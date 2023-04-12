@@ -335,6 +335,14 @@ export var article = [
         date:'2023-02-03',
         url:'/page/2023/ESDoc.html'
     }
+    ,
+    {
+        title:'.net core Code First不太常用功能',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2023-04-12',
+        url:'/page/2023/migration.html'
+    }
     
     
 ]
