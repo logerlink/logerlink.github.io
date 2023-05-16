@@ -342,6 +342,13 @@ export var article = [
         cateName:'.Net Core',
         date:'2023-04-12',
         url:'/page/2023/migration.html'
+    },
+    {
+        title:'Linux-Docker部署.netCore程序',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2023-05-16',
+        url:'/page/2023/DockerNetCore.html'
     }
     
     
