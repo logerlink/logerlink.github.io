@@ -29,7 +29,7 @@ nameof 表达式可生成变量、类型或成员的名称作为字符串常量�
         }
 ```
 
-![image-20230129172436452](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129172436452.png)
+![image-20230129172436452](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129172436452.png)
 
 ##### ?.、?[] null传播器
 
@@ -52,7 +52,7 @@ nameof 表达式可生成变量、类型或成员的名称作为字符串常量�
         }
 ```
 
-![image-20230129174616415](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129174616415.png)
+![image-20230129174616415](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129174616415.png)
 
 那么我们应该怎么处理呢？**处理异常或者做空判断**
 
@@ -107,7 +107,7 @@ nameof 表达式可生成变量、类型或成员的名称作为字符串常量�
         }
 ```
 
-![image-20230129180635900](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129180635900.png)
+![image-20230129180635900](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230129180635900.png)
 
 ##### 字符串内插
 
@@ -357,7 +357,7 @@ nameof 表达式可生成变量、类型或成员的名称作为字符串常量�
 
 这个唯一的作用就是在查阅代码时起到一个心理作用吧，如果这里使用了!，则表明该变量"不可能"为null，同时可以消除编辑器的null提示。
 
-![image-20230130163438076](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130163438076.png)
+![image-20230130163438076](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130163438076.png)
 
 但是如果值真为null，编译还是会报异常的。我个人感觉是没啥用的，但是好多人都在用...
 
@@ -376,7 +376,7 @@ nameof 表达式可生成变量、类型或成员的名称作为字符串常量�
         }
 ```
 
-![image-20230130163645825](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130163645825.png)
+![image-20230130163645825](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130163645825.png)
 
 #### 9.0
 
@@ -464,7 +464,7 @@ c#8、c#9都致力于switch的更新，简单看一下吧，新的switch功能�
         }
 ```
 
-![image-20230130170315052](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130170315052.png)
+![image-20230130170315052](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130170315052.png)
 
 ##### 顶级语句
 
@@ -474,7 +474,7 @@ c#8、c#9都致力于switch的更新，简单看一下吧，新的switch功能�
 - 顶级文件可以存在多个方法、类、命名空间，但他们都不能有访问修饰符
 - 顶级文件要依托于项目存在，单独的一个顶级文件是没有意义，是不能直接运行的（和python不一样）
 
-![image-20230130172322904](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130172322904.png)
+![image-20230130172322904](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130172322904.png)
 
 ##### new 优化
 
@@ -531,7 +531,7 @@ c#8、c#9都致力于switch的更新，简单看一下吧，新的switch功能�
 
 可以将namespace的大括号去掉，改为分号，这样一来一个文件就只能有一个namespace了，该文件内的成员都是该命名空间的成员。
 
-![image-20230130174849062](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130174849062.png)
+![image-20230130174849062](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130174849062.png)
 
 ##### 解除析构赋值的限制
 
@@ -566,4 +566,4 @@ c#8、c#9都致力于switch的更新，简单看一下吧，新的switch功能�
         }
 ```
 
-![image-20230130181013159](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130181013159.png)
+![image-20230130181013159](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230130181013159.png)

@@ -4,13 +4,13 @@
 
 一天，组长提了一个bug，让我先停下其他事情，优先处理这个bug，并特意说明在hotfix-xx分支（master切出来）上修改。三下五除二，咣咣一顿操作，成功解决。提PR合并到develop的时候，遇到冲突，我便取消了本次合并。接着在本地hotfix-xx分支通过`git pull`将develop分支代码拉取下来，解决冲突，再重新提合并。接着心满意足的报告组长让他评审，不过一会儿就收到自动通知，已经合并到develop。自己先点点，过会再让测试同学进行测试，结果不到五分钟便出现了以下对话：
 
-![image-20221125111338816](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125111338816.png)
+![image-20221125111338816](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125111338816.png)
 
 整个人都慌起来了，虽然组长提供了解决方案，但是我也没用过这个啊。尝试了一番没结果，最后我直接从master重新切一个hotfix-yy分支，然后将修改后的代码一点一点复制到yy分支上，最后重新提合并，由组长那边解决冲突。所幸修改的地方不多，不然就很麻烦了，那像这种场景应该怎么处理会更好呢？能否"挽回局面"让我们再试一下吧。
 
 #### 场景重现
 
-![image-20221125160255790](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125160255790.png)
+![image-20221125160255790](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125160255790.png)
 
 ```txt
 master:
@@ -25,7 +25,7 @@ hot-fix-a-bug切换至develop:
 合并hot-fix-a-bug分支
 ```
 
-![image-20221125171213521](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171213521.png)
+![image-20221125171213521](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171213521.png)
 
 这样问题就来了，由于是线上bug，我们**只需要处理该bug并将hot-fix-a-bug合并到master进行发布就行**，结果一通操作下来，hot-fix分支包括了develop修改的内容，我们并不希望将develop的修改一同发布（可能会出问题、功能未测试、未验收等），但是我们又不得不将hot-fix分支先合并到develop分支发布测试版进行测试。
 
@@ -35,11 +35,11 @@ hot-fix-a-bug切换至develop:
 
 ###### master源分支
 
-![image-20221125171733445](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171733445.png)
+![image-20221125171733445](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171733445.png)
 
 ###### hot-fix、develop分支
 
-![image-20221125171851494](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171851494.png)
+![image-20221125171851494](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125171851494.png)
 
 我们按照组长说的看看能不能通过撤销把代码还原吧。
 
@@ -57,11 +57,11 @@ git reset --hard 8f5f4fa0a3f501df49e54aaa557c1d2c97cdb3c8
 git log --pretty=oneline
 ```
 
-![image-20221125172115145](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125172115145.png)
+![image-20221125172115145](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125172115145.png)
 
 此时hot-fix-a-bug分支将变成未合并develop的时候：
 
-![image-20221125172400319](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125172400319.png)
+![image-20221125172400319](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125172400319.png)
 
 ##### 撤销develop的相关提交
 
@@ -77,17 +77,17 @@ git reset --hard 8df41a9c35c3b49a4d456f0d92472786137718a8
 git log --pretty=oneline
 ```
 
-![image-20221125173104116](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125173104116.png)
+![image-20221125173104116](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125173104116.png)
 
 此时develop分支将变成未合并hot-fix-a-bug的时候：
 
-![image-20221125173335576](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125173335576.png)
+![image-20221125173335576](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125173335576.png)
 
 ##### 撤销还原结果
 
 我们再看分支图，此时hot-fix-a-bug分支和develop分支已经没有关联，已经还原成功
 
-![image-20221125174014138](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125174014138.png)
+![image-20221125174014138](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125174014138.png)
 
 #### 如何处理
 
@@ -111,7 +111,7 @@ git merge hot-fix-a-bug
 #手动解决冲突，无冲突则忽略
 ```
 
-![image-20221125181805107](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125181805107.png)
+![image-20221125181805107](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125181805107.png)
 
 提交dev-new-a，此时就可以将本地的dev-new-a推送至仓库，提PR合并
 
@@ -123,11 +123,11 @@ git commit -m 'fix:合并fix-a'
 git push origin dev-new-a
 ```
 
-![image-20221125181907980](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125181907980.png)
+![image-20221125181907980](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125181907980.png)
 
 此时我们再看git的分支图
 
-![image-20221125182123285](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125182123285.png)
+![image-20221125182123285](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221125182123285.png)
 
 两条路线：master->develop、master->hot-fix-a-bug->dev-new-a
 

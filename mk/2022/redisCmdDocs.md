@@ -19,7 +19,7 @@ redis-cli -h host -p port -a password
 quit
 ```
 
-![image-20221025105540705](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025105540705.png)
+![image-20221025105540705](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025105540705.png)
 
 ##### SELECT——切换数据库
 
@@ -29,7 +29,7 @@ quit
 select 1
 ```
 
-![image-20221025110819630](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025110819630.png)
+![image-20221025110819630](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025110819630.png)
 
 ##### COPY——复制key
 
@@ -41,7 +41,7 @@ keys *
 get new_age
 ```
 
-![image-20221025155325265](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025155325265.png)
+![image-20221025155325265](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025155325265.png)
 
 也可以在不同的库之间进行复制操作，执行不成功则返回0
 
@@ -63,7 +63,7 @@ select 1
 get age
 ```
 
-![image-20221025160155457](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160155457.png)
+![image-20221025160155457](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160155457.png)
 
 ##### *DEL——删除key
 
@@ -76,7 +76,7 @@ del age
 del key1 new_age
 ```
 
-![image-20221025160434505](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160434505.png)
+![image-20221025160434505](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160434505.png)
 
 ##### *EXISTS——判断key是否存在
 
@@ -89,7 +89,7 @@ set age 10
 exists age
 ```
 
-![image-20221025160610143](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160610143.png)
+![image-20221025160610143](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025160610143.png)
 
 ##### *EXPIRE——指定Key多少秒后超时
 
@@ -114,7 +114,7 @@ expire age 10
 ttl age
 ```
 
-![image-20221025161756532](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025161756532.png)
+![image-20221025161756532](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025161756532.png)
 
 ##### EXPIREAT——指定Key在某个时间点超时
 
@@ -127,7 +127,7 @@ expireat age 1666686540
 ttl age
 ```
 
-![image-20221025163630037](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025163630037.png)
+![image-20221025163630037](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025163630037.png)
 
 ##### EXPIRETIME——返回key设置的过期时间戳
 
@@ -139,7 +139,7 @@ expireat age 1666690140
 expiretime age
 ```
 
-![image-20221025164417329](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025164417329.png)
+![image-20221025164417329](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025164417329.png)
 
 ##### *KEYS——查找Key
 
@@ -152,7 +152,7 @@ keys name
 keys name*
 ```
 
-![image-20221025164744357](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025164744357.png)
+![image-20221025164744357](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025164744357.png)
 
 ##### MOVE——移动Key到某个库
 
@@ -164,7 +164,7 @@ set age 10
 move age 1
 ```
 
-![image-20221025165249645](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025165249645.png)
+![image-20221025165249645](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025165249645.png)
 
 ##### *PERSIST——移除key的过期设置
 
@@ -176,7 +176,7 @@ expire age 20
 persist age
 ```
 
-![image-20221025171039025](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025171039025.png)
+![image-20221025171039025](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025171039025.png)
 
 ##### PEXPIRE——指定Key多少毫秒后超时
 
@@ -187,7 +187,7 @@ set age 10
 pexpire age 10000
 ```
 
-![image-20221025172927837](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025172927837.png)
+![image-20221025172927837](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025172927837.png)
 
 ##### PEXPIREAT——指定Key在某个时间点超时
 
@@ -221,7 +221,7 @@ ttl age
 pttl age
 ```
 
-![image-20221025173725552](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025173725552.png)
+![image-20221025173725552](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025173725552.png)
 
 ##### RANDOMKEY——随机取一个Key
 
@@ -233,7 +233,7 @@ set new_age 10
 randomkey
 ```
 
-![image-20221025173941752](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025173941752.png)
+![image-20221025173941752](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025173941752.png)
 
 ##### *RENAME——重命名Key
 
@@ -246,7 +246,7 @@ set age 100
 rename age new_age
 ```
 
-![image-20221025174827321](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025174827321.png)
+![image-20221025174827321](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025174827321.png)
 
 ##### RENAMEEX——重命名Key，若存在则忽略
 
@@ -261,7 +261,7 @@ set age 100
 renamenx age new_age
 ```
 
-![image-20221025175158113](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025175158113.png)
+![image-20221025175158113](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221025175158113.png)
 
 ##### *SACN——增量迭代key
 
@@ -278,7 +278,7 @@ keys *
 scan 0 MATCH age* COUNT 2
 ```
 
-![image-20221026094350097](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026094350097.png)
+![image-20221026094350097](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026094350097.png)
 
 ##### *SORT——排序Key
 
@@ -295,7 +295,7 @@ sort num_set DESC
 sort num_set ASC
 ```
 
-![image-20221209155656847](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209155656847.png)
+![image-20221209155656847](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209155656847.png)
 
 SORT排序，当集合中混杂字符串和数字类型，无法直接进行数值排序，可以指定ALPHA来实现字符串排序
 
@@ -307,7 +307,7 @@ sort str_set ALPHA
 sort str_set ALPHA DESC
 ```
 
-![image-20221209160011042](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209160011042.png)
+![image-20221209160011042](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209160011042.png)
 
 SORT排序，可以依赖外部值作为排序依据，与本集合元素的值无关，做到这一步需要我们有两处数据源：本集合、外部值
 
@@ -334,7 +334,7 @@ sort str_set by weight_* GET weight_*
 sort str_set by weight_* GET weight_* GET #
 ```
 
-![image-20221209161241174](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209161241174.png)
+![image-20221209161241174](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209161241174.png)
 
 当外部值不足时，未指定外部值的元素将字母排序并排到前面，当外部值都不存在时，则都按字母排序
 
@@ -353,7 +353,7 @@ sadd num_set 10 100 1 2
 sort num_set by weight_*
 ```
 
-![image-20221209162521803](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209162521803.png)
+![image-20221209162521803](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209162521803.png)
 
 SORT排序，BY还可以指定一个不存在的key跳过排序，避免排序花销（这有什么用？直接查出来不好了吗）
 
@@ -365,7 +365,7 @@ sadd num_set 10 100 1
 sort num_set BY no_key
 ```
 
-![image-20221209163436847](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209163436847.png)
+![image-20221209163436847](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209163436847.png)
 
 SORT排序，BY、GET在hash中的使用——`->`
 
@@ -380,7 +380,7 @@ hset sort_kk id 2 name zhaoliu
 sort str_set by sort_*->id GET sort_*->id GET sort_*->name GET #
 ```
 
-![image-20221209164156409](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209164156409.png)
+![image-20221209164156409](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209164156409.png)
 
 SORT排序，可以将排序结果存储到另外一个key中，得到的是list类型
 
@@ -392,7 +392,7 @@ type new_set
 lrange new_set 0 -1
 ```
 
-![image-20221209163100279](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209163100279.png)
+![image-20221209163100279](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209163100279.png)
 
 ##### SORT_RO——排序key、只读
 
@@ -413,7 +413,7 @@ touch name
 touch name age
 ```
 
-![image-20221209173121661](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209173121661.png)
+![image-20221209173121661](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209173121661.png)
 
 ##### *TTL——查看Key超时时间
 
@@ -425,7 +425,7 @@ expire age 20
 ttl age
 ```
 
-![image-20221026095057487](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095057487.png)
+![image-20221026095057487](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095057487.png)
 
 ##### *TYPE——查看Key的类型
 
@@ -438,7 +438,7 @@ type age
 type age_arr
 ```
 
-![image-20221026095301545](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095301545.png)
+![image-20221026095301545](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095301545.png)
 
 ##### *UNLINK——将Key取消链接，后续删除
 
@@ -450,7 +450,7 @@ set age1 10
 unlink age age1
 ```
 
-![image-20221026095911810](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095911810.png)
+![image-20221026095911810](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026095911810.png)
 
 #### STRING类型常用操作
 
@@ -464,7 +464,7 @@ append name Hi
 get name
 ```
 
-![image-20221026100201742](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100201742.png)
+![image-20221026100201742](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100201742.png)
 
 ##### *DECR——递减
 
@@ -480,7 +480,7 @@ set name haha
 decr name
 ```
 
-![image-20221026100435394](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100435394.png)
+![image-20221026100435394](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100435394.png)
 
 ##### DECRBY——指定步长递减
 
@@ -492,7 +492,7 @@ decrby age 5
 get age
 ```
 
-![image-20221026100919127](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100919127.png)
+![image-20221026100919127](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026100919127.png)
 
 ##### *GET——获取key的值
 
@@ -504,7 +504,7 @@ get age
 get new_age
 ```
 
-![image-20221026101116904](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026101116904.png)
+![image-20221026101116904](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026101116904.png)
 
 ##### GETDEL——获取key的值并删除该key
 
@@ -517,7 +517,7 @@ get age
 getdel age
 ```
 
-![image-20221026101303254](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026101303254.png)
+![image-20221026101303254](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026101303254.png)
 
 ##### GETEX——获取key的值并设置该key的过期时间
 
@@ -536,7 +536,7 @@ getex age EX 10
 ttl age
 ```
 
-![image-20221026102110145](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026102110145.png)
+![image-20221026102110145](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026102110145.png)
 
 ##### GETRANGE——获取某段字符串
 
@@ -549,7 +549,7 @@ getrange name 5 -1
 getrange name -3 -1
 ```
 
-![image-20221026102242551](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026102242551.png)
+![image-20221026102242551](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026102242551.png)
 
 ##### GETSET——设置key的值并返回旧值
 
@@ -563,7 +563,7 @@ getset new_name haha
 get new_name
 ```
 
-![image-20221026103630046](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026103630046.png)
+![image-20221026103630046](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026103630046.png)
 
 ##### *INCR——递增
 
@@ -579,7 +579,7 @@ incr new_key
 get new_key
 ```
 
-![image-20221026104047172](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104047172.png)
+![image-20221026104047172](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104047172.png)
 
 ##### INCRBY——指定步长递增
 
@@ -590,7 +590,7 @@ set age 10
 incrby age 5
 ```
 
-![image-20221026104234597](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104234597.png)
+![image-20221026104234597](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104234597.png)
 
 ##### INCRBYFLOAT——指定浮点步长递增
 
@@ -604,7 +604,7 @@ decrbyfloat money 5.0
 incrbyfloat money -2.5
 ```
 
-![image-20221026104637051](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104637051.png)
+![image-20221026104637051](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104637051.png)
 
 ##### *MGET——获取多个key值
 
@@ -616,7 +616,7 @@ set age1 100
 mget age age1 age2
 ```
 
-![image-20221026104949959](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104949959.png)
+![image-20221026104949959](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026104949959.png)
 
 ##### *MSET——设置多个key值
 
@@ -627,7 +627,7 @@ mset age 10 age1 100 age2 50
 mget age age1 age2
 ```
 
-![image-20221026105125351](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026105125351.png)
+![image-20221026105125351](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026105125351.png)
 
 ##### MSETNX——设置多个key值，若该key已存在，则忽略
 
@@ -643,7 +643,7 @@ msetnx age1 10 age 100
 msetnx age1 10 age2 100
 ```
 
-![image-20221026105606990](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026105606990.png)
+![image-20221026105606990](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026105606990.png)
 
 ##### PSETEX——设置key值并指定过期时间ms
 
@@ -656,7 +656,7 @@ msetnx age1 10 age2 100
 psetex age 10000 10
 ```
 
-![image-20221026110342673](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026110342673.png)
+![image-20221026110342673](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026110342673.png)
 
 ##### *SET——设置key值
 
@@ -693,7 +693,7 @@ set name LiSi GET
 get name
 ```
 
-![image-20221026112021590](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112021590.png)
+![image-20221026112021590](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112021590.png)
 
 ##### SETEX——设置key值，并指定过期时间s
 
@@ -706,7 +706,7 @@ setex name 10 haha
 ttl name
 ```
 
-![image-20221026112520474](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112520474.png)
+![image-20221026112520474](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112520474.png)
 
 ##### SETNX——设置key值，若该key已存在，则忽略
 
@@ -718,7 +718,7 @@ setnx age 100
 setnx new_key 100
 ```
 
-![image-20221026112726796](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112726796.png)
+![image-20221026112726796](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026112726796.png)
 
 ##### SETRANGE——修改指定区域
 
@@ -726,7 +726,7 @@ setnx new_key 100
 
 offset为下标，由0开始，value即想要替换的值，只会根据value的长度进行替换，如value长度为2，则只会从offset下标开始替换两个字符
 
-![image-20221026113203211](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113203211.png)
+![image-20221026113203211](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113203211.png)
 
 ##### *STRLEN——获取key值的字符串长度
 
@@ -735,7 +735,7 @@ set name ZhangSan
 strlen name
 ```
 
-![image-20221026113634480](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113634480.png)
+![image-20221026113634480](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113634480.png)
 
 ##### SUBSTR——截取key值
 
@@ -750,7 +750,7 @@ substr name 5 -1
 substr name -3 -1
 ```
 
-![image-20221026113847552](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113847552.png)
+![image-20221026113847552](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026113847552.png)
 
 #### LIST类型常用操作
 
@@ -771,7 +771,7 @@ blpop no_age ages 10
 blpop no_age ages 10
 ```
 
-![image-20221209165922502](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209165922502.png)
+![image-20221209165922502](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209165922502.png)
 
 ##### BRPOP——删除并返回最后一个元素，或阻塞直到第一个元素可用
 
@@ -795,7 +795,7 @@ set age 10
 lindex age 0
 ```
 
-![image-20221026142503065](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026142503065.png)
+![image-20221026142503065](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026142503065.png)
 
 ##### *LINSERT——插入元素
 
@@ -817,7 +817,7 @@ linsert ages AFTER 99 100
 linsert new_ages AFTER 99 100
 ```
 
-![image-20221026143321655](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026143321655.png)
+![image-20221026143321655](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026143321655.png)
 
 ##### *LLEN——获取列表长度
 
@@ -832,7 +832,7 @@ set age 10
 llen age
 ```
 
-![image-20221026143746779](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026143746779.png)
+![image-20221026143746779](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026143746779.png)
 
 ##### LMOVE——从列表a中移除，将其移动到列表b并返回
 
@@ -855,7 +855,7 @@ lrange dest_ages 0 -1
 lmove ages ages LEFT RIGHT
 ```
 
-![image-20221026145004381](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026145004381.png)
+![image-20221026145004381](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026145004381.png)
 
 ##### LMPOP——弹出一个或多个元素
 
@@ -879,7 +879,7 @@ lmpop 2 ages ages_1 LEFT COUNT 2
 lmpop 2 ages ages_1 LEFT COUNT 2
 ```
 
-![image-20221026152205506](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026152205506.png)
+![image-20221026152205506](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026152205506.png)
 
 ##### *LPOP——从左边弹出并返回元素
 
@@ -895,7 +895,7 @@ lpop new_key
 lpop new_key 5
 ```
 
-![image-20221026153014393](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026153014393.png)
+![image-20221026153014393](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026153014393.png)
 
 ##### LPOS——返回匹配元素的下标
 
@@ -922,7 +922,7 @@ lpos ages 20 RANK -1
 lpos ages 20 RANK -1 COUNT 0
 ```
 
-![image-20221026160106475](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026160106475.png)
+![image-20221026160106475](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026160106475.png)
 
 ```shell
 # 查找匹配项，仅查找1次
@@ -934,7 +934,7 @@ lpos ages 20 COUNT 0 MAXLEN 5
 lpos ages 20 COUNT 0 MAXLEN 0
 ```
 
-![image-20221026160804453](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026160804453.png)
+![image-20221026160804453](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026160804453.png)
 
 ##### *LPUSH——从左边将元素推入列表
 
@@ -945,7 +945,7 @@ lpush ages 10 20 30
 lrange ages 0 -1
 ```
 
-![image-20221026161328566](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161328566.png)
+![image-20221026161328566](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161328566.png)
 
 ##### LPUSHX——当集合存在时，从左边将元素推入列表
 
@@ -958,7 +958,7 @@ lpushx ages 20 30
 lpushx new_key 20 30
 ```
 
-![image-20221026161653172](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161653172.png)
+![image-20221026161653172](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161653172.png)
 
 ##### *LRANGE——获取指定区间数据
 
@@ -972,7 +972,7 @@ lrange ages 0 1
 lrange ages 0 -1
 ```
 
-![image-20221026161928642](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161928642.png)
+![image-20221026161928642](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026161928642.png)
 
 ##### *LREM——移除元素
 
@@ -990,7 +990,7 @@ lrange ages 0 -1
 del ages
 ```
 
-![image-20221026162539457](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162539457.png)
+![image-20221026162539457](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162539457.png)
 
 ```shell
 rpush ages 10 20 30 40 50 20 30 20
@@ -1000,7 +1000,7 @@ lrange ages 0 -1
 del ages
 ```
 
-![image-20221026162722470](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162722470.png)
+![image-20221026162722470](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162722470.png)
 
 ```shell
 rpush ages 10 20 30 40 50 20 30 20
@@ -1012,7 +1012,7 @@ lrem ages 0 20
 lrem new_key 0 20
 ```
 
-![image-20221026162941465](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162941465.png)
+![image-20221026162941465](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026162941465.png)
 
 ##### *LSET——通过下标设置值
 
@@ -1027,7 +1027,7 @@ lset ages -1 300
 lrange ages 0 -1
 ```
 
-![image-20221026163505535](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026163505535.png)
+![image-20221026163505535](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026163505535.png)
 
 ##### LTRIM——截取并保留指定区间数据
 
@@ -1042,7 +1042,7 @@ ltrim ages 0 -2
 lrange ages 0 -1
 ```
 
-![image-20221026164107361](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026164107361.png)
+![image-20221026164107361](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026164107361.png)
 
 ##### *RPOP——从右边弹出并返回元素
 
@@ -1056,7 +1056,7 @@ rpop ages
 rpop new_key
 ```
 
-![image-20221026164759769](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026164759769.png)
+![image-20221026164759769](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026164759769.png)
 
 ##### *RPUSH——从右边将元素推入列表
 
@@ -1067,7 +1067,7 @@ rpush ages 10 20 30
 lrange ages 0 -1
 ```
 
-![image-20221026165036392](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165036392.png)
+![image-20221026165036392](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165036392.png)
 
 ##### *RPUSHX——当集合存在时，从右边将元素推入列表
 
@@ -1080,7 +1080,7 @@ rpushx new_key 40
 keys *
 ```
 
-![image-20221026165146511](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165146511.png)
+![image-20221026165146511](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165146511.png)
 
 #### SET无序集合操作
 
@@ -1095,7 +1095,7 @@ sadd myset 90
 smembers myset
 ```
 
-![image-20221026165722887](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165722887.png)
+![image-20221026165722887](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026165722887.png)
 
 ##### *SCARD——返回集合长度
 
@@ -1104,7 +1104,7 @@ sadd myset 10 20 50 20 30
 scard myset
 ```
 
-![image-20221026170201550](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026170201550.png)
+![image-20221026170201550](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026170201550.png)
 
 ##### *SDIFF——获取差集
 
@@ -1121,7 +1121,7 @@ sdiff yourset myset
 sdiff yourset new_key
 ```
 
-![image-20221026170426649](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026170426649.png)
+![image-20221026170426649](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026170426649.png)
 
 ##### SDIFFSTORE——获取差集并存储新key中
 
@@ -1138,7 +1138,7 @@ smembers set_2
 del myset yourset set_1 set_2
 ```
 
-![image-20221026171047296](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026171047296.png)
+![image-20221026171047296](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026171047296.png)
 
 ##### *SINTER——获取交集
 
@@ -1153,7 +1153,7 @@ sinter myset yourset
 sinter myset new_key
 ```
 
-![image-20221026171201407](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026171201407.png)
+![image-20221026171201407](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026171201407.png)
 
 ##### SINTERCARD——获取交集并返回结果基数
 
@@ -1168,7 +1168,7 @@ sintercard 2 myset yourset
 sintercard 2 myset yourset LIMIT 1
 ```
 
-![image-20221026172342583](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172342583.png)
+![image-20221026172342583](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172342583.png)
 
 ##### SINTERSTORE——获取交集并存储新key中
 
@@ -1181,7 +1181,7 @@ smembers set_1
 del myset yourset set_1
 ```
 
-![image-20221026172554440](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172554440.png)
+![image-20221026172554440](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172554440.png)
 
 ##### *SISMEMBER——判断成员是否在集合中
 
@@ -1196,7 +1196,7 @@ sismember myset 99
 sismember new_key 99
 ```
 
-![image-20221026172927548](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172927548.png)
+![image-20221026172927548](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026172927548.png)
 
 ##### *SMEMBERS——获取全部成员
 
@@ -1205,7 +1205,7 @@ sadd myset 10 20 50 20 30
 smembers myset
 ```
 
-![image-20221026173342807](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026173342807.png)
+![image-20221026173342807](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026173342807.png)
 
 ##### SMISMEMBER——获取成员与集合的关系
 
@@ -1222,7 +1222,7 @@ smismember myset 99
 smismember new_key 99
 ```
 
-![image-20221026173505260](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026173505260.png)
+![image-20221026173505260](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026173505260.png)
 
 ##### SMOVE——移动成员到另一集合
 
@@ -1247,7 +1247,7 @@ smove myset new_key 99
 smove myset_1 new_key 99
 ```
 
-![image-20221026174948186](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026174948186.png)
+![image-20221026174948186](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026174948186.png)
 
 ##### *SPOP——弹出成员并返回
 
@@ -1259,7 +1259,7 @@ spop myset 2
 spop myset
 ```
 
-![image-20221026175624986](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026175624986.png)
+![image-20221026175624986](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026175624986.png)
 
 ##### SRANDMEMBER——随机获取成员
 
@@ -1269,7 +1269,7 @@ srandmember myset
 srandmember myset 2
 ```
 
-![image-20221026182218207](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026182218207.png)
+![image-20221026182218207](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221026182218207.png)
 
 ##### *SREM——移除成员
 
@@ -1281,7 +1281,7 @@ srem myset 10 20 30
 srem new_key 10
 ```
 
-![image-20221027100017507](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027100017507.png)
+![image-20221027100017507](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027100017507.png)
 
 ##### SSCAN——增量迭代成员
 
@@ -1296,7 +1296,7 @@ sadd myset 10 20 50 30 40 60 90 80 70 100 101 102 103 105
 sscan myset 0 MATCH 10* COUNT 2
 ```
 
-![image-20221027101400856](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101400856.png)
+![image-20221027101400856](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101400856.png)
 
 ##### *SUNION——获取并集
 
@@ -1307,7 +1307,7 @@ sadd yourset 20 30 70
 sunion myset yourset
 ```
 
-![image-20221027101544847](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101544847.png)
+![image-20221027101544847](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101544847.png)
 
 ##### SUNIONSTORE——获取并集并存储新key中
 
@@ -1319,7 +1319,7 @@ sunionstore set_1 myset yourset
 smembers set_1
 ```
 
-![image-20221027101725161](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101725161.png)
+![image-20221027101725161](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027101725161.png)
 
 #### ZSET（Sorted Set）有序集合常用操作
 
@@ -1336,7 +1336,7 @@ BZMPOP 10 2 myzset myzset1 MIN COUNT 2
 #看下图...
 ```
 
-![image-20221209171430039](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209171430039.png)
+![image-20221209171430039](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209171430039.png)
 
 ##### BZPOPMAX——删除并返回最高分数的成员，或阻塞直到第一个元素可用
 
@@ -1374,7 +1374,7 @@ zadd myzset NX CH 5 five 33 three
 zrange myzset 0 -1 WITHSCORES
 ```
 
-![image-20221027112213322](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027112213322.png)
+![image-20221027112213322](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027112213322.png)
 
 GT参数只会添加新成员、更新新分数大于当前分数的成员，LT与之相反
 
@@ -1384,7 +1384,7 @@ zadd myzset GT CH 0 one 22 two 4 four
 zrange myzset 0 -1 WITHSCORES
 ```
 
-![image-20221027113325931](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027113325931.png)
+![image-20221027113325931](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027113325931.png)
 
 ##### *ZCARD——返回集合长度
 
@@ -1393,7 +1393,7 @@ zadd myzset 1 one 2 two 3 three
 zcard myzset
 ```
 
-![image-20221027113510134](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027113510134.png)
+![image-20221027113510134](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027113510134.png)
 
 ##### *ZCOUNT——查看某个分数区间的集合长度
 
@@ -1410,7 +1410,7 @@ zcount myzset 1 (2
 zcount myzset -inf inf
 ```
 
-![image-20221027114343476](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027114343476.png)
+![image-20221027114343476](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027114343476.png)
 
 ##### *ZDIFF——获取差集
 
@@ -1427,7 +1427,7 @@ zdiff 2 myzset yourzset WITHSCORES
 zdiff 2 yourzset myzset WITHSCORES
 ```
 
-![image-20221027145453953](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027145453953.png)
+![image-20221027145453953](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027145453953.png)
 
 ##### ZDIFFSTORE——获取差集并存储新key中
 
@@ -1442,7 +1442,7 @@ zdiffstore zset_1 2 myzset yourzset
 zrange zset_1 0 -1 WITHSCORES
 ```
 
-![image-20221027151257903](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027151257903.png)
+![image-20221027151257903](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027151257903.png)
 
 ##### *ZINTER——获取差集
 
@@ -1463,7 +1463,7 @@ zinter 2 myzset yourzset WITHSCORES
 zinter 2 myzset yourzset WEIGHTS 3 2 AGGREGATE MAX WITHSCORES
 ```
 
-![image-20221027153540577](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027153540577.png)
+![image-20221027153540577](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027153540577.png)
 
 ##### ZINTERSTORE——获取差集并存储新key中
 
@@ -1479,7 +1479,7 @@ zinterstore zset_1 2 myzset yourzset
 zinterstore zset_2 2 myzset yourzset WEIGHTS 3 2 AGGREGATE MAX
 ```
 
-![image-20221027155310229](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027155310229.png)
+![image-20221027155310229](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027155310229.png)
 
 ##### ZINTERCARD——获取差集，并返回结果基数
 
@@ -1494,7 +1494,7 @@ zintercard 2 myzset yourzset
 zintercard 2 myzset yourzset LIMIT 1
 ```
 
-![image-20221027160119967](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027160119967.png)
+![image-20221027160119967](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027160119967.png)
 
 ##### *ZINCRBY——递增某成员的分数
 
@@ -1515,7 +1515,7 @@ zrange myzset 0 -1 WITHSCORES
 zincrby myzset_1 -3 three
 ```
 
-![image-20221027161330988](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027161330988.png)
+![image-20221027161330988](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221027161330988.png)
 
 ##### ZLEXCOUNT——获取指定成员区间的数量
 
@@ -1530,7 +1530,7 @@ zlexcount myzset [c (f
 zlexcount myzset - +
 ```
 
-![image-20221205144550784](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205144550784.png)
+![image-20221205144550784](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205144550784.png)
 
 ##### *ZMPOP——删除并返回分数
 
@@ -1550,7 +1550,7 @@ zmpop 2 myzset myzset1 MIN COUNT 3
 zmpop 2 myzset myzset1 MAX
 ```
 
-![image-20221205152344007](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205152344007.png)
+![image-20221205152344007](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205152344007.png)
 
 ##### *ZMSORE——获取某成员的分数
 
@@ -1562,7 +1562,7 @@ zmscore myzset a f
 zmscore myzset a 
 ```
 
-![image-20221205152843278](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205152843278.png)
+![image-20221205152843278](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205152843278.png)
 
 ##### ZPOPMAX——删除并返回最高分数的成员
 
@@ -1576,7 +1576,7 @@ zpopmax myzset
 zpopmax myzset 3
 ```
 
-![image-20221205153153380](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153153380.png)
+![image-20221205153153380](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153153380.png)
 
 ##### ZPOPMIN——删除并返回最低分数的成员
 
@@ -1590,7 +1590,7 @@ zpopmin myzset
 zpopmin myzset 2
 ```
 
-![image-20221205153340340](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153340340.png)
+![image-20221205153340340](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153340340.png)
 
 ##### ZRANDMEMBER——随机获取成员
 
@@ -1605,7 +1605,7 @@ zrandmember myzset 2
 zrandmember myzset 1 WITHSCORES
 ```
 
-![image-20221205153736132](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153736132.png)
+![image-20221205153736132](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205153736132.png)
 
 ##### ZRANGE——获取某个区间的成员
 
@@ -1633,7 +1633,7 @@ zrange myzset 0 2 REV
 zrange myzset 0 -1 WITHSCORES
 ```
 
-![image-20221205164538620](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205164538620.png)
+![image-20221205164538620](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205164538620.png)
 
 指定BYLEX时，**集合内的成员分数必须是一样的**，否则获取出来的结果和我们预期就不一致了，BYLEX不能和WITHSCORES一起使用
 
@@ -1653,7 +1653,7 @@ zrange myzset [a (c BYLEX REV
 zrange myzset [c (a BYLEX REV
 ```
 
-![image-20221205174450047](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205174450047.png)
+![image-20221205174450047](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221205174450047.png)
 
 可以通过LIMIT进一步筛选数据，必须和BYSCORE、BYLEX一起使用
 
@@ -1670,7 +1670,7 @@ zrange myzset 0 5 BYSCORE LIMIT 4 4
 zrange myzset 0 5 BYSCORE LIMIT 8 4
 ```
 
-![image-20221206100629521](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206100629521.png)
+![image-20221206100629521](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206100629521.png)
 
 ##### ZRANGEBYLEX——按字典范围获取某个区间的成员
 
@@ -1691,7 +1691,7 @@ zrangebylex myzset (a (j LIMIT 4 4
 zrangebylex myzset (a (j LIMIT 8 4
 ```
 
-![image-20221206101440795](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206101440795.png)
+![image-20221206101440795](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206101440795.png)
 
 ##### ZRANGEBYSCORE——根据分数获取某个区间的成员
 
@@ -1718,7 +1718,7 @@ zrangebyscore myzset - +
 zrangebyscore myzset -inf +inf
 ```
 
-![image-20221206102200234](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206102200234.png)
+![image-20221206102200234](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206102200234.png)
 
 ##### ZRANGESTORE——获取某个区间成员并存储新key中
 
@@ -1733,7 +1733,7 @@ zrangestore newzset myzset 0 1 BYSCORE
 zrange newzset 0 -1 WITHSCORES
 ```
 
-![image-20221206103357121](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206103357121.png)
+![image-20221206103357121](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206103357121.png)
 
 ##### ZRANK——根据成员返回索引，从低到高
 
@@ -1748,7 +1748,7 @@ zrank myzset b
 zrange myzset 0 -1
 ```
 
-![image-20221206104329806](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206104329806.png)
+![image-20221206104329806](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206104329806.png)
 
 ##### *ZREM——移除成员
 
@@ -1763,7 +1763,7 @@ zrem myzset a
 zrem myzset2 a
 ```
 
-![image-20221206104658975](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206104658975.png)
+![image-20221206104658975](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221206104658975.png)
 
 ##### ZREMRANGEBYLEX——按字典范围移除某个区间的成员
 
@@ -1786,7 +1786,7 @@ zrange myzset1 0 -1
 zremrangebylex myzset2 [a [d
 ```
 
-![image-20221208104345897](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208104345897.png)
+![image-20221208104345897](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208104345897.png)
 
 ##### *ZREMRANGEBYRANK——根据索引移除某个区间的成员
 
@@ -1808,7 +1808,7 @@ zrange myzset 0 -1
 zremrangebyrank myzset -inf +inf
 ```
 
-![image-20221208105244223](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208105244223.png)
+![image-20221208105244223](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208105244223.png)
 
 ##### ZREMRANGEBYSCORE——根据分数移除某个区间的成员
 
@@ -1834,7 +1834,7 @@ zremrangebyscore myzset 2 3
 zremrangebyscore myzset -inf +inf
 ```
 
-![image-20221208111052086](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208111052086.png)
+![image-20221208111052086](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208111052086.png)
 
 ##### ZREVRANGE——返回指定区间成员分数从高到低
 
@@ -1852,7 +1852,7 @@ zrevrange myzset 2 4 WITHSCORES
 zrevrange myzset 0 -1
 ```
 
-![image-20221208112223479](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208112223479.png)
+![image-20221208112223479](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208112223479.png)
 
 ##### ZREVRANGEBYLEX——根据字典范围返回指定区间成员
 
@@ -1873,7 +1873,7 @@ zrevrangebylex myzset [d (a LIMIT 3 1
 zrevrangebylex myzset [d (a WITHSCORES
 ```
 
-![image-20221208112937751](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208112937751.png)
+![image-20221208112937751](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208112937751.png)
 
 ##### ZREVRANGEBYSCORE——根据分数返回指定区间成员
 
@@ -1894,7 +1894,7 @@ zrevrangebyscore myzset +inf -inf
 zrevrangebyscore myzset + -
 ```
 
-![image-20221208114619679](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208114619679.png)
+![image-20221208114619679](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208114619679.png)
 
 ##### ZREVRANK——根据成员返回索引，从高到低
 
@@ -1909,7 +1909,7 @@ zrevrank myzset aaa
 zrevrank myzset1 aaa
 ```
 
-![image-20221208115203892](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208115203892.png)
+![image-20221208115203892](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208115203892.png)
 
 ##### *ZSCAN——增量迭代集合
 
@@ -1924,7 +1924,7 @@ zadd myzset 0 a 1 h 2 j 3 e 4 ia 5 bh 4 dj 3 ga 2 ch 1 fj
 zscan myzset 0 MATCH *a COUNT 1
 ```
 
-![image-20221208143032121](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208143032121.png)
+![image-20221208143032121](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208143032121.png)
 
 ##### *ZSCORE——获取成员分数
 
@@ -1941,7 +1941,7 @@ zscore myzset bb
 zscore myzset1 bb
 ```
 
-![image-20221208143248626](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208143248626.png)
+![image-20221208143248626](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208143248626.png)
 
 ##### *ZUNION——获取并集
 
@@ -1963,7 +1963,7 @@ zunion 2 myzset yourzset WITHSCORES
 zunion 2 myzset yourzset WEIGHTS 2 1 AGGREGATE MAX WITHSCORES
 ```
 
-![image-20221208144754183](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208144754183.png)
+![image-20221208144754183](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208144754183.png)
 
 ##### ZUNIONSTORE——获取并集并存储新key中
 
@@ -1981,7 +1981,7 @@ zunionstore rzset 2 myzset yourzset
 zrange rzset 0 -1 WITHSCORES
 ```
 
-![image-20221208145830918](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208145830918.png)
+![image-20221208145830918](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221208145830918.png)
 
 #### HASH类型常用操作
 
@@ -2000,7 +2000,7 @@ hdel myhash a
 hdel myhash1 a
 ```
 
-![image-20221209105542361](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209105542361.png)
+![image-20221209105542361](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209105542361.png)
 
 ##### *HEXISTS——判断是否存在某字段
 
@@ -2016,7 +2016,7 @@ hexists myhash aa
 hexists myhash1 aa
 ```
 
-![image-20221209105912832](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209105912832.png)
+![image-20221209105912832](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209105912832.png)
 
 ##### *HGET——获取字段值
 
@@ -2032,7 +2032,7 @@ hget myhash cc
 hget myhash1 cc
 ```
 
-![image-20221209110117638](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209110117638.png)
+![image-20221209110117638](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209110117638.png)
 
 ##### HGETALL——获取全部字段值
 
@@ -2043,7 +2043,7 @@ hset myhash a 1 b 22 c 33
 hgetall myhash
 ```
 
-![image-20221209110303791](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209110303791.png)
+![image-20221209110303791](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209110303791.png)
 
 ##### *HINCRBY——根据步长递增字段
 
@@ -2062,7 +2062,7 @@ hincrby myhash1 aa 100
 hgetall myhash1
 ```
 
-![image-20221209111051966](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111051966.png)
+![image-20221209111051966](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111051966.png)
 
 ##### *HINCRBYFLOAT——根据小数步长递增字段
 
@@ -2078,7 +2078,7 @@ hincrbyfloat myhash a -20.20
 hincrby myhash a -20.20
 ```
 
-![image-20221209111327240](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111327240.png)
+![image-20221209111327240](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111327240.png)
 
 ##### *HKEYS——获取所有字段
 
@@ -2091,7 +2091,7 @@ hset myhash a 1 b 22 c 33
 hkeys myhash11
 ```
 
-![image-20221209111544289](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111544289.png)
+![image-20221209111544289](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111544289.png)
 
 ##### *HLEN——获取字段个数
 
@@ -2105,7 +2105,7 @@ hlen myhash
 hlen myhash11
 ```
 
-![image-20221209111742877](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111742877.png)
+![image-20221209111742877](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111742877.png)
 
 ##### HMGET——获取多个字段值
 
@@ -2121,7 +2121,7 @@ hmget myhash cc
 hmget myhash1 cc
 ```
 
-![image-20221209111938494](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111938494.png)
+![image-20221209111938494](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209111938494.png)
 
 ##### HMSET——设置多个字段值
 
@@ -2135,7 +2135,7 @@ hmset myhash a 111 b 222 d 44
 hgetall myhash
 ```
 
-![image-20221209112636990](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209112636990.png)
+![image-20221209112636990](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209112636990.png)
 
 ##### HRANDFIELD——随机获取字段
 
@@ -2154,7 +2154,7 @@ hrandfield myhash 5
 hrandfield myhash 5 WITHVALUES
 ```
 
-![image-20221209113035847](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209113035847.png)
+![image-20221209113035847](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209113035847.png)
 
 ##### *HSCAN——增量迭代hash字段
 
@@ -2169,7 +2169,7 @@ hset myhash a 1 b 22 c 33 aa 11 aab 112 aac 113 aaaa 1111
 hscan myhash 0 MATCH a* COUNT 2
 ```
 
-![image-20221209142549110](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209142549110.png)
+![image-20221209142549110](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209142549110.png)
 
 ##### *HSET——设置字段
 
@@ -2184,7 +2184,7 @@ hset myhash a 11 b 22 c 33
 hgetall myhash
 ```
 
-![image-20221209143446947](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209143446947.png)
+![image-20221209143446947](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209143446947.png)
 
 ##### HSETNX——设置字段，当该字段存在则忽略
 
@@ -2199,7 +2199,7 @@ hsetnx myhash aa 100
 hgetall myhash
 ```
 
-![image-20221209143826885](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209143826885.png)
+![image-20221209143826885](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209143826885.png)
 
 ##### *HSTRLEN——获取字段值的长度
 
@@ -2216,7 +2216,7 @@ hstrlen myhash aa
 hstrlen myhash1 aa
 ```
 
-![image-20221209144108496](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209144108496.png)
+![image-20221209144108496](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209144108496.png)
 
 ##### HVALS——获取所有字段值
 
@@ -2230,7 +2230,7 @@ hvals myhash
 hvals myhash1
 ```
 
-![image-20221209144301674](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209144301674.png)
+![image-20221209144301674](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20221209144301674.png)
 
 
 

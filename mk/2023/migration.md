@@ -10,7 +10,7 @@ Pomelo.EntityFrameworkCore.MySql 6.0.2
 
 Microsoft.EntityFrameworkCore.Tools 6.0.2
 
-![image-20230412114909464](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412114909464.png)
+![image-20230412114909464](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412114909464.png)
 
 #### 快速搭建.net core api项目
 
@@ -73,7 +73,7 @@ MyDemo.Host项目安装 **Microsoft.EntityFrameworkCore.Tools** 包，注意版�
 
 控制台项目的默认项目和解决方案的启动项目都选MyDemo.Host项目
 
-![image-20230411160231204](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230411160231204.png)
+![image-20230411160231204](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230411160231204.png)
 
 添加迁移/修改数据库
 
@@ -82,7 +82,7 @@ add-migration add-table-user
 update-database
 ```
 
-![image-20230411180554843](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230411180554843.png)
+![image-20230411180554843](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230411180554843.png)
 
 #### 从属实体类型-Owned
 
@@ -120,13 +120,13 @@ update-database
 
 通过desc Users 查看表结构，我们可以看到Address的属性是作为User的属性存在于User表中的
 
-![image-20230412102221975](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412102221975.png)
+![image-20230412102221975](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412102221975.png)
 
 #### 指定保留小数点位数
 
 一般默认情况下，通过Code First迁移模型生成数据库，sql server的小数点是两位，mysql则是30位，若要指定保留小数点位数则只需要再每次添加迁移后修改Up方法内的type即可
 
-![image-20230412104555116](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412104555116.png)
+![image-20230412104555116](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412104555116.png)
 
 每次添加迁移都要手动修改代码会比较麻烦，而且也不建议如此操作。建议重写DBContext的OnModelCreating方法，在该方法内进行配置即可
 
@@ -161,7 +161,7 @@ update-database
 
 我们再看执行添加迁移后生成的代码，一开始我们指定保留4位小数，后面又统一将decimal、decimal? 类型的字段指定保留5位小数
 
-![image-20230412110739366](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412110739366.png)
+![image-20230412110739366](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412110739366.png)
 
 #### 生成数据库sql语句
 
@@ -179,7 +179,7 @@ update-database
 script-migration -FROM '0' -To 20230412022011_add-user-column-address -o MyDemo.Host/Script/01-add-user.sql
 ```
 
-![image-20230412113514935](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412113514935.png)
+![image-20230412113514935](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412113514935.png)
 
 ##### 生成版本D到版本F的迁移脚本
 
@@ -195,4 +195,4 @@ FROM必填、TO选填，不填则表示迁移至最新的版本；
 script-migration 20230412022011_add-user-column-address 20230412030112_update-user-column-money -o MyDemo.Host/Script/02-update-column-money.sql
 ```
 
-![image-20230412113927501](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412113927501.png)
+![image-20230412113927501](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230412113927501.png)
