@@ -55,7 +55,7 @@ docker ps -a
 docker logs 容器ID
 ```
 
-![image-20230512145556683](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512145556683.png)
+![image-20230512145556683](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512145556683.png)
 
 ##### 查看mysql是否可用
 
@@ -71,7 +71,7 @@ mysql -u root -p
 exit
 ```
 
-![image-20230512150040977](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512150040977.png)
+![image-20230512150040977](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512150040977.png)
 
 #### docker 安装 redis
 
@@ -112,7 +112,7 @@ docker ps -a
 docker logs 容器ID
 ```
 
-![image-20230512151929155](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512151929155.png)
+![image-20230512151929155](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512151929155.png)
 
 ##### 查看redis是否可用
 
@@ -128,7 +128,7 @@ redis-cli
 exit
 ```
 
-![image-20230512152316011](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512152316011.png)
+![image-20230512152316011](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512152316011.png)
 
 #### docker 安装 nginx
 
@@ -202,7 +202,7 @@ docker ps -a
 docker logs 容器ID
 ```
 
-![image-20230512153343272](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512153343272.png)
+![image-20230512153343272](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512153343272.png)
 
 ##### 查看nginx是否可用
 
@@ -210,7 +210,7 @@ docker logs 容器ID
 curl 127.0.0.1
 ```
 
-![image-20230512153843014](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512153843014.png)
+![image-20230512153843014](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230512153843014.png)
 
 #### docker 部署 .net core程序
 
@@ -218,7 +218,7 @@ curl 127.0.0.1
 
 主项目右键—>添加—>docker支持 —>选择平台（linux），然后就会在该项目下生成Dockerfile文件。Dockerfile里面的内容我们先不用管，直接将该文件移动到**解决方案目录**即可，这样做可以避免Dockerfile构建的时候找不到项目依赖的问题。
 
-![image-20230515104611132](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515104611132.png)
+![image-20230515104611132](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515104611132.png)
 
 ##### Dockerfile说明
 
@@ -226,7 +226,7 @@ curl 127.0.0.1
 
 更多解释可以参考[[Docker\] .NET Core 的 Dockerfile 指令詳解 | K. C. - 點部落 (dotblogs.com.tw)](https://dotblogs.com.tw/fire/2022/10/27/225738)
 
-![image-20230515110010102](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515110010102.png)
+![image-20230515110010102](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515110010102.png)
 
 ##### docker打包发布程序(手动)
 
@@ -238,7 +238,7 @@ docker build -t aspnetapp:2.2 .
 docker images
 ```
 
-![image-20230515110940310](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515110940310.png)
+![image-20230515110940310](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515110940310.png)
 
 保存镜像到本地
 
@@ -246,7 +246,7 @@ docker images
 docker save aspnetapp:2.2 > english_backend2.2.tar
 ```
 
-![image-20230515113036870](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515113036870.png)
+![image-20230515113036870](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515113036870.png)
 
 将文件上传至服务器，加载镜像
 
@@ -261,7 +261,7 @@ docker images
 # docker tag 镜像ID aspnetapp:2.2
 ```
 
-![image-20230515113639447](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515113639447.png)
+![image-20230515113639447](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515113639447.png)
 
 ##### docker打包发布程序说明
 
@@ -315,7 +315,7 @@ aspnetapp:2.2
 
 到这里我们.net core 程序、mysql服务、redis服务、nginx都已经装好了
 
-![image-20230515115755506](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515115755506.png)
+![image-20230515115755506](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515115755506.png)
 
 ##### 时区问题
 
@@ -323,7 +323,7 @@ aspnetapp:2.2
 
 注意了，`-v /etc/localtime:/etc/localtime` 是可以将容器时区和宿主机保持一致，但是程序获取的时间还是utc时间。
 
-![image-20230515120719380](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515120719380.png)
+![image-20230515120719380](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515120719380.png)
 
 我们应该如此：
 
@@ -340,7 +340,7 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' 
 
 效果如图，宿主机时间、容器时间、程序获取时间基本保持一致
 
-![image-20230515121257621](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515121257621.png)
+![image-20230515121257621](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515121257621.png)
 
 当然，时区问题也可以直接Dockerfile文件的final阶段执行以下命令，这样就不需要每次发布都手动同步时区了
 
@@ -373,11 +373,11 @@ docker restart 容器ID
 # 重启nginx容器后配置生效
 ```
 
-![image-20230516115119951](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230516115119951.png)
+![image-20230516115119951](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230516115119951.png)
 
 nginx配置文件修改内容
 
-![image-20230516114923894](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230516114923894.png)
+![image-20230516114923894](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230516114923894.png)
 
 #### docker-compose 一键操作管理服务
 
@@ -522,7 +522,7 @@ docker-compose down
 docker-compose images
 ```
 
-![image-20230515174550956](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515174550956.png)
+![image-20230515174550956](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515174550956.png)
 
 ###### 列出项目中所有容器
 
@@ -538,7 +538,7 @@ unpause可以解除暂停
 docker-compose pause redis-server
 ```
 
-![image-20230515174820928](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515174820928.png)
+![image-20230515174820928](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515174820928.png)
 
 ###### 不暂停服务
 
@@ -546,7 +546,7 @@ docker-compose pause redis-server
 docker-compose unpause redis-server
 ```
 
-![image-20230515175033321](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175033321.png)
+![image-20230515175033321](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175033321.png)
 
 ###### 停止服务
 
@@ -556,7 +556,7 @@ docker-compose unpause redis-server
 docker-compose stop redis
 ```
 
-![image-20230515175735112](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175735112.png)
+![image-20230515175735112](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175735112.png)
 
 ###### 启动服务（单个）
 
@@ -564,7 +564,7 @@ docker-compose stop redis
 docker-compose start redis-server
 ```
 
-![image-20230515175950350](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175950350.png)
+![image-20230515175950350](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515175950350.png)
 
 ######  重启服务（单个）
 

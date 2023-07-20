@@ -14,13 +14,13 @@ kibana 8.0+
 
 安装后访问 127.0.0.1:9200 ，注意端口，出现以下界面便是成功的
 
-![image-20230131162605503](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131162605503.png)
+![image-20230131162605503](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131162605503.png)
 
 ##### 查看集群健康状态_cat/health
 
 访问：https://127.0.0.1:9200/_cat/health?v
 
-![image-20230131163043775](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163043775.png)
+![image-20230131163043775](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163043775.png)
 
 - cluster：集群名称
 - status：集群状态 green 表示集群一切正常；yellow 表示集群不可靠但可用(单节点状态)；red 集群不可用，有故障。
@@ -39,7 +39,7 @@ kibana 8.0+
 
 https://127.0.0.1:9200/_cat/shards?v
 
-![image-20230131163440304](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163440304.png)
+![image-20230131163440304](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163440304.png)
 
 - index：索引名称，通常.开头的是es自带的索引
 - shard：分片数
@@ -54,7 +54,7 @@ https://127.0.0.1:9200/_cat/shards?v
 
 https://127.0.0.1:9200/_cat/nodes?v
 
-![image-20230131163807466](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163807466.png)
+![image-20230131163807466](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131163807466.png)
 
 - ip：节点ip
 - heap.percent：堆内存使用百分比
@@ -67,7 +67,7 @@ https://127.0.0.1:9200/_cat/nodes?v
 
 https://127.0.0.1:9200/_cat/indices?v
 
-![image-20230131164137019](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131164137019.png)
+![image-20230131164137019](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131164137019.png)
 
 - index： 索引名称
 - docs.count：文档总数
@@ -126,7 +126,7 @@ POST test_index/_doc/2
 
 我们可以看到可以查出两条"张三"数据，其中一条id是随机生成的，另外一条是指定生成的，若下次在指定相同id则会执行update操作，直接覆盖已有的记录
 
-![image-20230131170557861](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131170557861.png)
+![image-20230131170557861](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131170557861.png)
 
 PUT indexName/_doc/id
 
@@ -145,7 +145,7 @@ PUT test_index/_doc/3kil
 }
 ```
 
-![image-20230131172533858](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131172533858.png)
+![image-20230131172533858](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131172533858.png)
 
 像上述的两种方式更新会直接覆盖原有记录，那有没有办法只修改其中某些字段呢？肯定是有的，我们可以借助 POST indexName/_update/id 来处理，只有POST可以这样操作，PUT不可以
 
@@ -173,7 +173,7 @@ POST test_index/_update/1
 }
 ```
 
-![image-20230131174803851](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131174803851.png)
+![image-20230131174803851](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230131174803851.png)
 
 还可以借助 POST indexName/_update_by_query来批量修改
 
@@ -215,7 +215,7 @@ POST test_index/_update_by_query
 }
 ```
 
-![image-20230201101745388](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201101745388.png)
+![image-20230201101745388](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201101745388.png)
 
 ##### 删除文档
 
@@ -226,7 +226,7 @@ POST test_index/_update_by_query
 DELETE test_index/_doc/piYYFoYBT75LHCRvdQFk
 ```
 
-![image-20230203150753196](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203150753196.png)
+![image-20230203150753196](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203150753196.png)
 
 也可以通过条件进行删除，_delete_by_query
 
@@ -262,7 +262,7 @@ POST test_index/_delete_by_query?slices=auto&conflicts=proceed&wait_for_completi
 }
 ```
 
-![image-20230203151259488](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203151259488.png)
+![image-20230203151259488](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203151259488.png)
 
 ##### 简单查询
 
@@ -278,7 +278,7 @@ POST test_index/_doc/1
 GET test_index/_doc/1
 ```
 
-![image-20230201102932385](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201102932385.png)
+![image-20230201102932385](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201102932385.png)
 
 我们还可以进行查询、排序、分页，不过这种方式有很大的局限性，而且也不安全（GET请求），不推荐使用
 
@@ -406,7 +406,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201112854654](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201112854654.png)
+![image-20230201112854654](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201112854654.png)
 
 ###### term
 
@@ -447,11 +447,11 @@ POST test_index/_search
 }
 ```
 
-![image-20230201175105436](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175105436.png)
+![image-20230201175105436](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175105436.png)
 
 这两个term查询，查询"张小五"的时候，是没有结果的，而查询“五”却可以出现结果。原因是因为name字段没有指定keyword类型时，默认为text类型，当我们插入"张小五"，分词器会将这段文本进行分词后插入倒排索引中。如下图"张小五"被分为"张"、"小五"、"五"，当我们使用term查询"张小五"时自然查不到，因为term不会将搜索词进行分词。
 
-![image-20230201161647361](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201161647361.png)
+![image-20230201161647361](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201161647361.png)
 
 ###### terms
 
@@ -485,7 +485,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201175211799](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175211799.png)
+![image-20230201175211799](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175211799.png)
 
 ###### match
 
@@ -527,7 +527,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230203143741801](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203143741801.png)
+![image-20230203143741801](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203143741801.png)
 
 ###### multi_match
 
@@ -546,7 +546,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201175415176](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175415176.png)
+![image-20230201175415176](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175415176.png)
 
 ###### match_phrase
 
@@ -574,7 +574,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201175508297](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175508297.png)
+![image-20230201175508297](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175508297.png)
 
 ###### ids
 
@@ -592,7 +592,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202102438237](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202102438237.png)
+![image-20230202102438237](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202102438237.png)
 
 ###### range
 
@@ -614,7 +614,7 @@ POST test_index/_search
 
 ```
 
-![image-20230202102707767](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202102707767.png)
+![image-20230202102707767](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202102707767.png)
 
 ###### exist
 
@@ -632,7 +632,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202103009820](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202103009820.png)
+![image-20230202103009820](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202103009820.png)
 
 ###### bool
 
@@ -688,7 +688,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202105322816](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202105322816.png)
+![image-20230202105322816](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202105322816.png)
 
 ###### prefix
 
@@ -744,7 +744,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201175727938](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175727938.png)
+![image-20230201175727938](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201175727938.png)
 
 ###### wildcard
 
@@ -775,7 +775,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230201173845333](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201173845333.png)
+![image-20230201173845333](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230201173845333.png)
 
 ###### fuzzy
 
@@ -807,7 +807,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202101905248](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202101905248.png)
+![image-20230202101905248](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202101905248.png)
 
 ###### regexp
 
@@ -853,7 +853,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202110031646](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202110031646.png)
+![image-20230202110031646](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202110031646.png)
 
 ###### 注意事项
 
@@ -897,7 +897,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202111159509](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202111159509.png)
+![image-20230202111159509](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202111159509.png)
 
 ##### scroll分页查询
 
@@ -920,7 +920,7 @@ POST test_index/_search?scroll=1m
 }
 ```
 
-![image-20230203113515810](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203113515810.png)
+![image-20230203113515810](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203113515810.png)
 
 根据scroll_id进行请求，获得数据
 
@@ -933,7 +933,7 @@ POST _search/scroll
 }
 ```
 
-![image-20230203113833459](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203113833459.png)
+![image-20230203113833459](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203113833459.png)
 
 当超过scroll的设置的过期时间，scroll上下文会被自动删除，但是scroll不会删除，所以当我们处理完数据，需要手动删除scroll
 
@@ -948,7 +948,7 @@ DELETE _search/scroll/id1,id2
 DELETE _search/scroll/_all
 ```
 
-![image-20230203114615057](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203114615057.png)
+![image-20230203114615057](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203114615057.png)
 
 ##### 排序字段
 
@@ -978,7 +978,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202111655436](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202111655436.png)
+![image-20230202111655436](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202111655436.png)
 
 ##### 指定字段查询
 
@@ -1017,7 +1017,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202112544853](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202112544853.png)
+![image-20230202112544853](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202112544853.png)
 
 ##### 高亮查询
 
@@ -1043,7 +1043,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230203150024398](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203150024398.png)
+![image-20230203150024398](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203150024398.png)
 
 ##### 过滤查询
 
@@ -1090,7 +1090,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202143358748](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202143358748.png)
+![image-20230202143358748](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202143358748.png)
 
 ##### 聚合查询
 
@@ -1151,7 +1151,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202161353641](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202161353641.png)
+![image-20230202161353641](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202161353641.png)
 
 ###### 文档计数_count
 
@@ -1167,7 +1167,7 @@ POST test_index/_count
 }
 ```
 
-![image-20230202171010064](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202171010064.png)
+![image-20230202171010064](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202171010064.png)
 
 ###### 统计某字段有值的文档数value_count
 
@@ -1186,7 +1186,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202171532990](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202171532990.png)
+![image-20230202171532990](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202171532990.png)
 
 ###### 去重后计数cardinality
 
@@ -1205,7 +1205,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202172002440](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172002440.png)
+![image-20230202172002440](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172002440.png)
 
 ###### stats统计
 
@@ -1226,7 +1226,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202172402880](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172402880.png)
+![image-20230202172402880](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172402880.png)
 
 ###### extended_stats统计
 
@@ -1246,7 +1246,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202172941218](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172941218.png)
+![image-20230202172941218](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202172941218.png)
 
 ###### 百分位统计percentiles
 
@@ -1277,7 +1277,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202174252450](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202174252450.png)
+![image-20230202174252450](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202174252450.png)
 
 ###### 统计值小于等于指定值的文档占比percentile_ranks
 
@@ -1305,7 +1305,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230202175125236](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202175125236.png)
+![image-20230202175125236](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230202175125236.png)
 
 ###### 地理位置坐标点的范围
 
@@ -1357,7 +1357,7 @@ POST test_index/_search
 
 "sum_other_doc_count": 3	未返回的其他文档数，不在桶里的文档数量
 
-![image-20230203101725822](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203101725822.png)
+![image-20230203101725822](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203101725822.png)
 
 ###### 对满足过滤查询的文档进行聚合计算filter
 
@@ -1387,7 +1387,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230203104010028](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203104010028.png)
+![image-20230203104010028](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203104010028.png)
 
 ###### 分别对多个过滤条件聚合计算filters
 
@@ -1428,7 +1428,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230203105543166](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203105543166.png)
+![image-20230203105543166](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203105543166.png)
 
 ###### 数值范围分组聚合range
 
@@ -1461,7 +1461,7 @@ POST test_index/_search
 }
 ```
 
-![image-20230203110401827](https://cdn.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203110401827.png)
+![image-20230203110401827](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230203110401827.png)
 
 ###### 时间范围分组聚合date_range
 
