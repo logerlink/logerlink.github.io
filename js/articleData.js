@@ -44,6 +44,11 @@ export const categoryArr = [
         cate:'1011',
         className:'circle-mid'
     },
+    {
+        title:'Sql',
+        cate:'1013',
+        className:'circle-min'
+    },
 ]
 
 
@@ -349,6 +354,13 @@ export var article = [
         cateName:'.Net Core',
         date:'2023-05-16',
         url:'/page/2023/DockerNetCore.html'
+    },
+    {
+        title:'简单记录Sql Server常见锁类型',
+        cate:'1013',
+        cateName:'Sql',
+        date:'2023-08-17',
+        url:'/page/2023/SqlserverLock.html'
     }
     
     
