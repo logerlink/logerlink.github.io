@@ -361,6 +361,13 @@ export var article = [
         cateName:'Sql',
         date:'2023-08-17',
         url:'/page/2023/SqlserverLock.html'
+    },
+    {
+        title:'简单记录Sql Server事务及隔离级别',
+        cate:'1013',
+        cateName:'Sql',
+        date:'2023-08-31',
+        url:'/page/2023/SqlServerIsolation.html'
     }
     
     
