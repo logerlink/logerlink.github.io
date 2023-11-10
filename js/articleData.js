@@ -368,6 +368,13 @@ export var article = [
         cateName:'Sql',
         date:'2023-08-31',
         url:'/page/2023/SqlServerIsolation.html'
+    },
+    {
+        title:'01C#开发实用：快速从网址中提取获取域名',
+        cate:'1002',
+        cateName:'c#',
+        date:'2023-11-10',
+        url:'/page/2023/GetDomain.html'
     }
     
     

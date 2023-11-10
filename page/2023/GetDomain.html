@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    </link>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <title>简单记录Sql Server事务及隔离级别</title>
+    <meta name="description" content="简单记录Sql Server事务及隔离级别的应用,脏读、不可重复读、幻读，EFCore使用事务修改隔离级别">
+    <link href='../../css/family.css' rel='stylesheet' type='text/css' />
+    <script src="../../js/base.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-left">
+            <div class="wave"></div>
+            <div class="category">
+            </div>
+        </div>
+        <div class="col-right">
+            <article>
+                <header>
+                    <h1 class="title">
+                        01.net开发实用：快速从网址中提取获取域名
+                    </h1>
+                    <div class="dateTime">
+                        2023-11-10
+                    </div>
+                </header>
+                <hr />
+                <div class="content">
+                    <div class='typora-export os-windows'>
+                        <div id='write' class=''>
+                            <p><span>环境：.net core 3.0</span></p>
+                            <p><span>如何从网址中提取获取域名？看到这我们首先会想到截取字符串、正则匹配这两种方式，但最近我发现了一种更为优雅的方式帮助我们快速从网址中提取获取域名——借助URI对象。</span>
+                            </p>
+                            <p><span>首先我们先看看截取、正则的具体实现方式。</span></p>
+                            <pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false"
+                                lang="csharp"
+                                style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="csharp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;summary&gt;</span></span></pre>
+                        </div>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// 根据字符串截取域名</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;/summary&gt;</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;param name="url"&gt;&lt;/param&gt;</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">Test</span>]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"http://www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">void</span> <span class="cm-variable">TestGetDomainBySubString</span>(<span class="cm-variable-3">string</span> <span class="cm-variable">url</span>)</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">domain</span> <span class="cm-operator">=</span> <span class="cm-variable-3">string</span>.<span class="cm-variable">Empty</span>;</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">url</span>.<span class="cm-variable">StartsWith</span>(<span class="cm-string">"http:"</span>) <span class="cm-operator">||</span> <span class="cm-variable">url</span>.<span class="cm-variable">StartsWith</span>(<span class="cm-string">"https:"</span>))</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">start</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>.<span class="cm-variable">IndexOf</span>(<span class="cm-string">"/"</span>);</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">end</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>.<span class="cm-variable">IndexOf</span>(<span class="cm-string">"/"</span>, <span class="cm-number">8</span>); &nbsp; <span class="cm-comment">// 忽略http://、https:// 取第一个/的位置</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">domain</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>.<span class="cm-variable">Substring</span>(<span class="cm-variable">start</span>, <span class="cm-variable">end</span> <span class="cm-operator">-</span> <span class="cm-variable">start</span>).<span class="cm-variable">Replace</span>(<span class="cm-string">"/"</span>, <span class="cm-string">""</span>); &nbsp; &nbsp;<span class="cm-comment">// url[start..end]</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">end</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>.<span class="cm-variable">IndexOf</span>(<span class="cm-string">"/"</span>, <span class="cm-number">8</span>);</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">domain</span> <span class="cm-operator">=</span> <span class="cm-variable">url</span>.<span class="cm-variable">Substring</span>(<span class="cm-number">0</span>, <span class="cm-variable">end</span>).<span class="cm-variable">Replace</span>(<span class="cm-string">"/"</span>, <span class="cm-string">""</span>);</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Console</span>.<span class="cm-variable">WriteLine</span>(<span class="cm-variable">domain</span>); &nbsp;<span class="cm-comment">// www.testDomain.com</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        <pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;summary&gt;</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// 根据正则表达式匹配获取域名</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;/summary&gt;</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;param name="url"&gt;&lt;/param&gt;</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">Test</span>]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"http://www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"wss://127.0.0.1:5566/xx/xxx/xxxx.html"</span>)]</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">void</span> <span class="cm-variable">TestGetDomainByRegex</span>(<span class="cm-variable-3">string</span> <span class="cm-variable">url</span>)</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">regex</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Regex</span>(<span class="cm-string">"^((https|http|ftp|rtsp|mms|ws|wss):\\/\\/)?(?&lt;domain&gt;.*?)/.*"</span>); &nbsp;<span class="cm-comment">// (?&lt;domain&gt;.*?) 正则具名分组</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">domain</span> <span class="cm-operator">=</span> <span class="cm-variable-3">string</span>.<span class="cm-variable">Empty</span>;</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">domainMatch</span> <span class="cm-operator">=</span> <span class="cm-variable">regex</span>.<span class="cm-variable">Match</span>(<span class="cm-variable">url</span>);</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">domainMatch</span>.<span class="cm-variable">Success</span>)</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">domain</span> <span class="cm-operator">=</span> <span class="cm-variable">domainMatch</span>.<span class="cm-variable">Groups</span>[<span class="cm-string">"domain"</span>].<span class="cm-variable">Value</span>;</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Console</span>.<span class="cm-variable">WriteLine</span>(<span class="cm-variable">domain</span>); &nbsp;<span class="cm-comment">// www.testDomain.com</span></span></pre>
+                        <pre class=" CodeMirror-line "
+                            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 991px;"></div>
+    <div class="CodeMirror-gutters" style="display: none; height: 991px;"></div>
+    </div>
+    </div>
+    </pre>
+    <p><span>看了队友借助URI对象的方式获取域名，着实让我眼前一亮。而且还可以更快更方便的获取其他信息，如端口、协议名称等等</span></p>
+    <pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="csharp"
+        style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="csharp"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    </div>
+    <div class="CodeMirror-measure"></div>
+    <div style="position: relative; z-index: 1;"></div>
+    <div class="CodeMirror-code" role="presentation" style="">
+        <div class="CodeMirror-activeline" style="position: relative;">
+            <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+            <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div>
+            <pre class=" CodeMirror-line "
+                role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;summary&gt;</span></span></pre>
+        </div>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// 根据Uri获取域名，无需校验链接是否有效</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;/summary&gt;</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">/// &lt;param name="url"&gt;&lt;/param&gt;</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">Test</span>]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"http://www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"https://www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"wss://www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"www.testDomain.com/xx/xxx/xxxx.html"</span>)]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [<span class="cm-variable">TestCase</span>(<span class="cm-string">"127.0.0.1:5566/xx/xxx/xxxx.html"</span>)]</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-keyword">void</span> <span class="cm-variable">TestGetDomainByUri</span>(<span class="cm-variable-3">string</span> <span class="cm-variable">url</span>)</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-operator">!</span><span class="cm-string">"https|http|ftp|rtsp|mms|ws|wss"</span>.<span class="cm-variable">Split</span>(<span class="cm-string">'|'</span>).<span class="cm-variable">Any</span>(<span class="cm-variable">x</span> <span class="cm-operator">=&gt;</span> <span class="cm-variable">url</span>.<span class="cm-variable">StartsWith</span>(<span class="cm-variable">x</span>))) <span class="cm-variable">url</span> <span class="cm-operator">=</span> <span class="cm-string">"http://"</span> <span class="cm-operator">+</span> <span class="cm-variable">url</span>;</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">uri</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">Uri</span>(<span class="cm-variable">url</span>);</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">domain</span> <span class="cm-operator">=</span> <span class="cm-variable">uri</span>.<span class="cm-variable">Authority</span>; <span class="cm-comment">// 获取域名（IP:端口）</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">xx</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  {</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">Scheme</span>, &nbsp; &nbsp; <span class="cm-comment">// 获取方案（协议）名称，如：http、ftp、https...</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">Port</span>, &nbsp; &nbsp; &nbsp; <span class="cm-comment">// 获取端口，如：http默认80，https默认443</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">Host</span>, &nbsp; &nbsp; &nbsp; <span class="cm-comment">// 也是域名（仅IP）</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">AbsoluteUri</span>, &nbsp; &nbsp;<span class="cm-comment">// 完整url</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">PathAndQuery</span>, &nbsp; <span class="cm-comment">// 获取绝对路径（不含域名）。/xx/xxx/xxxx.html</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">uri</span>.<span class="cm-variable">DnsSafeHost</span> &nbsp; &nbsp; <span class="cm-comment">// dns主机名，域名（仅IP）。www.testdomain.com</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  };</span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">Console</span>.<span class="cm-variable">WriteLine</span>(<span class="cm-variable">domain</span>); &nbsp;<span class="cm-comment">// www.testDomain.com</span></span></pre>
+        <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 599px;"></div>
+    <div class="CodeMirror-gutters" style="display: none; height: 599px;"></div>
+    </div>
+    </div>
+    </pre>
+    <p><span>又水了一篇，本来想做个汇总的，算了，就这样吧。</span></p>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </article>
+    </div>
+    <div class="btn-toTop"></div>
+    </div>
+</body>
+
+</html>
