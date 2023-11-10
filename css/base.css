@@ -145,7 +145,7 @@
 
 .col-left .circle span{
     display: block;
-    font-size: 12px;
+    font-size: 15px;
     transition: all 1s ease 0s;
 }
 /* <!--分类-大--> */
@@ -184,7 +184,7 @@
 }
 /* <!--分类-中--> */
 .circle.circle-mid{
-    font-size: 8px;
+    font-size: 12px;
     width: 60px;
     height: 60px;
     line-height: 60px;
