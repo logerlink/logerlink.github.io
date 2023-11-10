@@ -110,6 +110,21 @@ update-database
         public string Detail { get; set; }
     }
 ```
+---2023/11/10补充---
+值得注意，.net 6.0版本之前，**EF Update更新数据库操作默认不会更改Owned实体的字段**，需要我们手动处理。这属于已知bug，.net 6.0+版本后已修复，无需手动处理。
+
+如我们在.net 6.0版本之前需要更新Owned实体的字段，我们需要手动将 Owned 实体内部的属性启用编辑
+```csharp
+            var entry = Context.Attach<User>(entity);
+            var ownEntry = entry.Reference("Address");    // 引用 Owned 属性对象，这里是属性名称，不是类名
+            if (ownEntry.TargetEntry == null) return;
+            // Owned 实体内部的属性启用编辑
+            ownEntry.TargetEntry.Property("Country").IsModified = true;  // 属性名称
+            ownEntry.TargetEntry.Property("State").IsModified = true;
+            ownEntry.TargetEntry.Property("City").IsModified = true;
+            ownEntry.TargetEntry.Property("Detail").IsModified = true;
+			Context.Update(entity);	// 执行更新操作
+```
 
 ##### 添加迁移/修改数据库
 
