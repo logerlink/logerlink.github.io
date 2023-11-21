@@ -370,11 +370,18 @@ export var article = [
         url:'/page/2023/SqlServerIsolation.html'
     },
     {
-        title:'01C#开发实用：快速从网址中提取获取域名',
-        cate:'1002',
-        cateName:'c#',
+        title:'01.net开发实用：快速从网址中提取获取域名',
+        cate:'1006',
+        cateName:'.Net Core',
         date:'2023-11-10',
         url:'/page/2023/GetDomain.html'
+    },
+    {
+        title:'02.net开发实用：c#默认值和可空类型常见的操作',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2023-11-21',
+        url:'/page/2023/DefaultValue.html'
     }
     
     
