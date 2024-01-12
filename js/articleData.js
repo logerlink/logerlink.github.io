@@ -382,6 +382,13 @@ export var article = [
         cateName:'.Net Core',
         date:'2023-11-21',
         url:'/page/2023/DefaultValue.html'
+    },
+    {
+        title:'SQL Server数据库，如何快速更新数据库表和字段的注释信息',
+        cate:'1013',
+        cateName:'Sql',
+        date:'2024-01-12',
+        url:'/page/2024/SetComment.html'
     }
     
     
