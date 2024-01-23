@@ -389,6 +389,13 @@ export var article = [
         cateName:'Sql',
         date:'2024-01-12',
         url:'/page/2024/SetComment.html'
+    },
+    {
+        title:'借助 Mock.js 快速生成数据库虚拟数据',
+        cate:'1013',
+        cateName:'Sql',
+        date:'2024-01-23',
+        url:'/page/2024/MockSqlData.html'
     }
     
     
