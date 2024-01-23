@@ -10,7 +10,7 @@
 
 ​	Sql Server
 
-生成后的数据参考：[TKData.zip](https://github.com/logerlink/blogImg/blame/main/shareData/TKData.zip)
+生成后的数据参考：[TKData.zip](https://github.com/logerlink/blogImg/blob/main/shareData/TKData.zip)
 
 ### 造数据
 
