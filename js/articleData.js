@@ -396,6 +396,20 @@ export var article = [
         cateName:'Sql',
         date:'2024-01-23',
         url:'/page/2024/MockSqlData.html'
+    },
+    {
+        title:'EF CodeFirst迁移错误：Column names in each table must be unique',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2024-01-26',
+        url:'/page/2024/EFMigrationError.html'
+    },
+    {
+        title:'.Net Core启动程序报错：以一种访问权限不允许的方式做了一个访问套接字的尝试',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2024-01-26',
+        url:'/page/2024/PortDisable.html'
     }
     
     
