@@ -410,6 +410,20 @@ export var article = [
         cateName:'.Net Core',
         date:'2024-01-26',
         url:'/page/2024/PortDisable.html'
+    },
+    {
+        title:'2024年三十晚',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2024-03-20',
+        url:'/page/2024/2024.html'
+    },
+    {
+        title:'SQL Server数据库的连接操作整理与优化',
+        cate:'1013',
+        cateName:'Sql',
+        date:'2024-03-21',
+        url:'/page/2024/SqlJoin.html'
     }
     
     
