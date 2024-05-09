@@ -433,7 +433,7 @@ export var article = [
         url:'/page/2024/ForQuick.html'
     },
     {
-        title:'c#多线程相关整理——Thread篇',
+        title:'c#多线程相关整理01——Thread篇',
         cate:'1002',
         cateName:'c#',
         date:'2024-05-09',
