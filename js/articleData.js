@@ -424,6 +424,13 @@ export var article = [
         cateName:'Sql',
         date:'2024-03-21',
         url:'/page/2024/SqlJoin.html'
+    },
+    {
+        title:'c#大数据循环的优化',
+        cate:'1002',
+        cateName:'c#',
+        date:'2024-03-21',
+        url:'/page/2024/ForQuick.html'
     }
     
     
