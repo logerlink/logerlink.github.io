@@ -452,6 +452,13 @@ export var article = [
         cateName:'杂记',
         date:'2024-05-31',
         url:'/page/2024/ClearCDisk.html'
+    },
+    {
+        title:'多线程相关整理03——Task篇',
+        cate:'1002',
+        cateName:'c#',
+        date:'2024-06-25',
+        url:'/page/2024/Task.html'
     }
     
     
