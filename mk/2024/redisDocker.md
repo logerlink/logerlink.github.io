@@ -342,7 +342,9 @@ BF.INSERT key NOCREATE NONSCALING ITEMS "value1" value2
 
 ###### 代码使用-c#
 
-使用参考：[RedisTest/RedisTest.Share/RedisClient.cs at main · logerlink/RedisTest (github.com)](https://github.com/logerlink/RedisTest/blob/main/RedisTest.Share/RedisClient.cs)
+使用参考：[RedisTest/RedisTest.Share/RedisClient.cs at main · logerlink/RedisTest (github.com)](https://github.com/logerlink/RedisTest/blob/main/RedisTest.Share/RedisClient.cs) 
+
+[c#使用布隆过滤器](https://logerlink.github.io/page/2024/redisUseDocs.html#使用布隆过滤器)
 
 ```csharp
     /// <summary>
