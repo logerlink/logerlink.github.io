@@ -459,8 +459,20 @@ export var article = [
         cateName:'c#',
         date:'2024-06-25',
         url:'/page/2024/Task.html'
+    },
+    {
+        title:'redis整理01——redis、mysql的安装与使用及使用布隆过滤器',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2024-08-13',
+        url:'/page/2024/redisDocker.html'
+    },
+    {
+        title:'redis整理02——如何更好的使用redis',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2024-08-14',
+        url:'/page/2024/redisUseDocs.html'
     }
-    
-    
 ]
 
