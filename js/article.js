@@ -121,7 +121,7 @@ export function createSiteMap() {
         {
             items.push(`
     <url>
-        <loc>https://logerlink.github.io/${x.url}</loc>
+        <loc>https://logerlink.github.io${x.url}</loc>
         <lastmod>${x.date}</lastmod>
         <changefreq>${(article.length - index)  < 5 ? 'weekly' : 'monthly'}</changefreq>
         <priority>${(priorityArr.indexOf(x.cate) >= 0 ? 0.7 : 0.5)}</priority>
