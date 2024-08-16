@@ -1,4 +1,4 @@
-import {initCategory,initCategoryList,initTitleCate,initComment} from './article.js'
+import {initCategory,initCategoryList,initTitleCate,initComment,createSiteMap} from './article.js'
 import {toggleTOC,toTop} from './resize.js?v=2'
 import {showImage,lazyLoad,codeCopy} from './image.js'
 
@@ -19,4 +19,5 @@ window.onload = function(){
     setTimeout(()=>{
         initComment()
     },2000)
+    // console.log(createSiteMap());
 }
