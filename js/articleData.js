@@ -473,6 +473,13 @@ export var article = [
         cateName:'开发工具',
         date:'2024-08-14',
         url:'/page/2024/redisUseDocs.html'
+    },
+    {
+        title:'redis整理03——redis数据持久化、主从模式、主从模式+哨兵机制以及分片集群',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2024-09-16',
+        url:'/page/2024/redisData.html'
     }
 ]
 

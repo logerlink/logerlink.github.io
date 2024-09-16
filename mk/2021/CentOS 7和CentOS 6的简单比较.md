@@ -260,7 +260,7 @@ firewall-cmd --zone=public --query-port=88/tcp
 删除配置规则
 
 ```shell
-firewall-cmd --zone=public --remove-port/tcp --permanent
+firewall-cmd --zone=public --remove-port=88/tcp --permanent
 #重载防火墙即可
 ```
 
