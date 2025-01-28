@@ -480,6 +480,12 @@ export var article = [
         cateName:'开发工具',
         date:'2024-09-16',
         url:'/page/2024/redisData.html'
-    }
+    },{
+        title:'2025年二十九除夕夜',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2025-01-29',
+        url:'/page/2025/2025.html'
+    },
 ]
 
