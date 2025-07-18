@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /log.html
+Disallow: /mk/
+Sitemap: https://logerlink.github.io/Sitemap.xml
