@@ -487,5 +487,12 @@ export var article = [
         date:'2025-01-29',
         url:'/page/2025/2025.html'
     },
+    {
+        title:'Typora通过PicGo软件上传图片至GitHub仓库（图床）',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2025-07-18',
+        url:'/page/2025/typoraImg.html'
+    },
 ]
 
