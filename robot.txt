@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /log.html
 Disallow: /mk/
+Disallow: /2024/favorites_2024_6_28.html
 Sitemap: https://logerlink.github.io/Sitemap.xml
