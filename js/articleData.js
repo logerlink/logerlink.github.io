@@ -494,5 +494,19 @@ export var article = [
         date:'2025-07-18',
         url:'/page/2025/typoraImg.html'
     },
+    {
+        title:'abp-001如何在Visual Studio中创建src文件夹',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2025-08-15',
+        url:'/page/2025/srcForlder.html'
+    },
+    {
+        title:'abp-002手动搭建一个abp模块化单体项目及abp常见问题',
+        cate:'1006',
+        cateName:'.Net Core',
+        date:'2025-08-16',
+        url:'/page/2025/abpModule.html'
+    },
 ]
 
