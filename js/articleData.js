@@ -508,5 +508,12 @@ export var article = [
         date:'2025-08-16',
         url:'/page/2025/abpModule.html'
     },
+    {
+        title:'2026年二十九除夕夜',
+        cate:'1001',
+        cateName:'杂记',
+        date:'2026-03-04',
+        url:'/page/2026/2026.html'
+    },
 ]
 
