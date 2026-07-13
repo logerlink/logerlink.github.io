@@ -515,5 +515,12 @@ export var article = [
         date:'2026-03-04',
         url:'/page/2026/2026.html'
     },
+    {
+        title:'edge上传浏览器插件',
+        cate:'1008',
+        cateName:'开发工具',
+        date:'2026-06-16',
+        url:'/page/2026/EdgeExtension.html'
+    },
 ]
 

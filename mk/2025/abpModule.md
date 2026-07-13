@@ -10,7 +10,7 @@
 
 版本：.net 8.0、Abp 8.3.4、SQL Server
 
-源码：[MyProject v1.0.0](https://github.com/logerlink/MyProject/tree/v1.0.0) 
+源码：[MyProject v1.0.0](https://github.com/logerlink/MyProject/tree/v1.0.0) 。（注意：后期借助AI深刻理解后，重新更新了一次。可能会造成源码和文档有部分内容不一致的情况，建议以main分支为主，文档可作为辅助参考）
 
 #### 为什么
 
@@ -235,9 +235,9 @@ D:\WORK\MYPROJECT
     }
 ```
 
-#### 创建实体
+#### 创建实体——Domian层
 
-在**Domian**层的UserInfos文件夹下创建实体`UserInfo`
+在**Domian**层的UserInfos文件夹下创建实体`UserInfo`，有必要的话可以创建UserInfoManager领域服务（专门用于处理业务逻辑，避免把所有逻辑都堆积在AppService中）
 
 ```csharp
 /**
@@ -269,7 +269,33 @@ public class UserInfo : Entity<int>
 
 ```
 
-#### 创建DBContext
+```csharp
+    public class UserInfoManager: DomainService     // 一定要继承 DomainService，否则无法注入到ApplicationService中
+    {
+        private readonly IUserInfoRepository _userInfoRepository;
+        public UserInfoManager(IUserInfoRepository userInfoRepository)
+        {
+            _userInfoRepository = userInfoRepository;
+        }
+        public async Task<UserInfo> UpdateUserInfo(UpdateUserInfoModel userInfo)
+        {
+            var dbUserInfo = await _userInfoRepository.GetAsync(x => x.Id == userInfo.Id);
+            if (dbUserInfo == null) throw new Exception("用户信息不存在");
+            Merge2UserInfo(userInfo, dbUserInfo);
+            return dbUserInfo;
+        }
+
+        private void Merge2UserInfo(UpdateUserInfoModel source, UserInfo target)
+        {
+            target.Name = source.Name;
+            target.PhoneNumber = source.PhoneNumber;
+            target.Type = source.Type;
+        }
+    }
+}
+```
+
+#### 创建DBContext——EntityframeworkCore层
 
 在**EntityframeworkCore**层的EntityframeworkCore文件夹下创建数据库上下文`UserModuleDbContext`
 
@@ -307,7 +333,7 @@ public class UserModuleDbContext : AbpDbContext<UserModuleDbContext>
 }
 ```
 
-#### 注入DBContext
+#### 注入DBContext——EntityframeworkCore层
 
 修改**EntityframeworkCore**层的模块配置`UserModuleEntityFrameworkCoreModule`，注入数据库上下文信息
 
@@ -341,7 +367,7 @@ public class UserModuleEntityFrameworkCoreModule : AbpModule
 }
 ```
 
-#### 定义业务契约接口
+#### 定义业务契约接口Dto——Application.Contracts层
 
 在**Application.Contracts**层的UserInfos文件夹定义了业务接口`IUserInfoAppService`和相关Dto
 
@@ -357,14 +383,43 @@ public interface IUserInfoAppService : IApplicationService  // 要继承IApplica
 
 
 // 以下单独建一个类
-public class CreateUserInfoDto
+public class CreateUserInfoDto : IValidatableObject     // 实现自动验证接口。注意要放在Dto中实现
 {
-    public int Id { get; set; }
+    [Required(ErrorMessage = "用户名不能为空")]
+    [StringLength(50, MinimumLength = 5, ErrorMessage = "用户名长度不能少于5个字符")]
     public required string Name { get; set; }
-
+    [Required(ErrorMessage = "密码不能为空")]
+    [DisableAuditing]   // 禁用审计，不要记录密码日志，保护用户隐私
     public required string Password { get; set; }
     public int Type { get; set; }
     public string? PhoneNumber { get; set; }    // 表示字段可空
+
+    /// <summary>
+    /// 实现 IValidatableObject 接口，自动触发验证逻辑。不要手动调用
+    /// </summary>
+    /// <param name="validationContext"></param>
+    /// <returns></returns>
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        // 规则 1：密码不能包含用户名
+        if (Password.Contains(Name))
+        {
+            yield return new ValidationResult(
+                "密码安全系数低：密码中不能包含用户名！",
+                new[] { nameof(Password) } // 指定是哪个字段错的
+            );
+        }
+
+        // 规则 2：排除常见弱口令
+        var blackList = new List<string> { "12345678", "password", "qwertyui" };
+        if (blackList.Contains(Password.ToLower()))
+        {
+            yield return new ValidationResult(
+                "该密码属于常用弱口令，请重新输入！",
+                new[] { nameof(Password) }
+            );
+        }
+    }
 }
 
 public class UserInfoDto
@@ -379,7 +434,7 @@ public class UserInfoDto
 }
 ```
 
-#### 实现业务接口
+#### 实现业务接口——Application层
 
 在**Application**层的UserInfos文件夹定义业务实现`UserInfoAppService`，继承`ApplicationService`，实现`IUserInfoAppService`
 
@@ -396,15 +451,17 @@ public class UserInfoDto
 public class UserInfoAppService : ApplicationService, IUserInfoAppService   // 不强制实现IUserInfoAppService，不过一般都会实现
 {
     private readonly IRepository<UserInfo, int> _userInfoRepository;
+    private readonly UserInfoManager _userInfoManager;
     /// <summary>
     /// 自定义User仓储接口
     /// </summary>
     private readonly IUserInfoRepository _myUserInfoRepository;
 
-    public UserInfoAppService(IRepository<UserInfo, int> userInfoRepository, IUserInfoRepository myUserInfoRepository)
+    public UserInfoAppService(IRepository<UserInfo, int> userInfoRepository, IUserInfoRepository myUserInfoRepository, UserInfoManager userInfoManager)
     {
         _userInfoRepository = userInfoRepository;
         _myUserInfoRepository = myUserInfoRepository;
+        _userInfoManager = userInfoManager;
     }
 
     /// <summary>
@@ -435,10 +492,19 @@ public class UserInfoAppService : ApplicationService, IUserInfoAppService   // �
         model = await _userInfoRepository.InsertAsync(model);
         return ObjectMapper.Map<UserInfo, UserInfoDto>(model);
     }
+    public async Task<UserInfoDto> UpdateAsync(UpdateUserInfoDto inputDto)
+    {
+        var model = ObjectMapper.Map<UpdateUserInfoDto, UpdateUserInfoModel>(inputDto);
+
+        var updateModel = await _userInfoManager.UpdateUserInfo(model);
+
+        //updateModel = await _userInfoRepository.UpdateAsync(updateModel);     // 这里可以不用调用，由abp处理
+        return ObjectMapper.Map<UserInfo, UserInfoDto>(updateModel);
+    }
 }
 ```
 
-#### 配置并使用AutoMapper
+#### 配置并使用AutoMapper——Application层
 
 在**Application**层下创建AutoMapper映射文件`UserModuleApplicationAutoMapperProfile`
 
@@ -448,6 +514,9 @@ public class UserInfoAppService : ApplicationService, IUserInfoAppService   // �
         public UserModuleApplicationAutoMapperProfile()
         {
             CreateMap<UserInfo, UserInfoDto>();
+            CreateMap<CreateUserInfoDto, UserInfo>();
+
+            CreateMap<UpdateUserInfoDto, UpdateUserInfoModel>();
         }
     }
 ```
@@ -473,7 +542,7 @@ public class UserModuleApplicationModule : AbpModule
 }
 ```
 
-#### 定义自定义仓储接口（可选）
+#### 定义自定义仓储接口（可选）——Domain层
 
 在**Domain**层下的UserInfos文件夹定义仓储接口`IUserInfoRepository`，可以在里面自定义接口以实现不同功能
 
@@ -487,7 +556,7 @@ public class UserModuleApplicationModule : AbpModule
     }
 ```
 
-#### 定义自定义仓储实现（可选）
+#### 定义自定义仓储实现（可选）——EntityframeworkCore层
 
 在**EntityframeworkCore**层的UserInfos文件夹下创建仓储实现`UserInfoRepository`，可以在里面实现自定义仓储接口以实现不同的功能
 
@@ -512,7 +581,7 @@ public class UserModuleApplicationModule : AbpModule
 
 **注意：若不自定义仓储，需要在DbContext中显示定义`DbSet<Entity>`，不然会注入仓储失败**
 
-#### 配置和使用abp
+#### 配置和使用abp——Host层
 
 在**Host**层的`MyProjectHostModule`配置abp相关功能——swagger、autofac、丢弃Controller自动api
 
@@ -607,7 +676,7 @@ public class MyProjectHostModule : AbpModule
 }
 ```
 
-#### 使用abp和autofac
+#### 使用abp和autofac——Host层
 
 在**Host**层的`Program`中使用abp和autofact
 
@@ -638,11 +707,11 @@ abp毕竟不是从0到1的项目，可能是从0.5到1的项目，大多数还�
 3. 一定要通过`[DependsOn(typeof(xxxModule))]`**显示声明模块依赖**，可以避开绝大部分的报错
 4. 所有的Module文件都要继承`AbpModule`
 5. 跨模块交互通过**应用服务接口**或**事件总线**，不直接引用其他模块的领域层
-6. **领域层**包括实体、聚合根、领域服务（xxxService）、领域事件（xxxEvent）、审计字段；仓储接口（IxxxRepository），继承IRepository接口。实现`IDomainService`会自动注册为领域服务
-7. 应用层包括应用服务实现（xxxAppService），继承ApplicationService；在应用服务中可以通过特性`[UnitOfWork]`开启事务
+6. **领域层**包括实体、聚合根、领域服务（xxxManager）、领域事件（xxxEvent）、审计字段；仓储接口（IxxxRepository），继承IRepository接口。实现`IDomainService`会自动注册为领域服务（可以访问仓储，xxxAppServicek而已直接用）
+7. 应用层包括应用服务实现服务（xxxAppService），继承ApplicationService；在应用服务中可以通过特性`[UnitOfWork]`开启事务
 8. **契约层**包括应用应用服务接口（IxxxAppService），继承IApplicationService；各类输入输出Dto
 9. **基础设施层**包括数据库上下文(xxxDbContext)，仓储实现（xxxRepository），仓储实现继承于`EfCoreRepository<UserModuleDbContext, UserInfo, int>`
-10. 命名规范：领域服务——xxxService；领域事件——xxxEvent；仓储接口——IxxxRepository；仓储实现——xxxRepository；应用服务接口——IxxxAppService；应用服务实现——xxxAppService；数据库上下文——xxxDbContext；
+10. 命名规范：领域服务——xxxManager；领域事件——xxxEvent；仓储接口——IxxxRepository；仓储实现——xxxRepository；应用服务接口——IxxxAppService；应用服务实现——xxxAppService；数据库上下文——xxxDbContext；实体类、文件夹都应该要用单数形式（我上面的演示内容不规范）
 11. abp支持autofac自动注入Service、Repository，
 12. 无需手动配置。如有需求，可以继承`ITransientDependency、IScopedDependency、ISingletonDependency`接口来完成`瞬时、作用域、单例`注入
 13. abp自带全局异常过滤器，会处理未捕获的异常，统一返回格式。自定义异常可以继承`AbpException`
