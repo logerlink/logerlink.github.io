@@ -10,6 +10,12 @@
 
 本文需要有一定docker基础，如镜像、容器的操作等等
 
+没有梯子，建议先配置docker镜像
+
+所有的linux命令都是用root，非root用户加上sudo即可
+
+所有docker run命令不要换行，放到一行执行，避免报错。文中换行只是为了方便预览
+
 #### docker 安装 mysql
 
 ##### 拉取镜像
@@ -224,6 +230,8 @@ curl 127.0.0.1
 
 正常来说，VS自动生成的Dockerfile不需要做太大变动，我们只需要关注暴露端口和工作目录即可
 
+*2026-08-04修正：.net8开始默认暴漏8080端口，所以dockefile也要改为8080*
+
 更多解释可以参考[[Docker\] .NET Core 的 Dockerfile 指令詳解 | K. C. - 點部落 (dotblogs.com.tw)](https://dotblogs.com.tw/fire/2022/10/27/225738)
 
 ![image-20230515110010102](https://gcore.jsdelivr.net/gh/logerlink/blogImg/typora-img/image-20230515110010102.png)
@@ -242,6 +250,8 @@ docker images
 
 保存镜像到本地
 
+*2026-08-04修正：window的powershell可能不支持>符号，可能load 的时候会失败：invalid tar header。建议换成官方命令：`docker save -o ./english_backend2.2.tar english_backend:2.2`*
+
 ```shell
 docker save aspnetapp:2.2 > english_backend2.2.tar
 ```
@@ -255,6 +265,8 @@ docker save aspnetapp:2.2 > english_backend2.2.tar
 cd /usr/core/
 # 加载镜像
 docker load < english_backend2.2.tar
+# 完整命令
+# docker load -i .\english_backend2.2.tar
 docker images
 
 # 如果仓库名和Tag为空，可以使用tag命令进行打tag
@@ -267,7 +279,7 @@ docker images
 
 打包发布有多种，大家可以自行搜索，整体步骤大差不差，怎么方便怎么来
 
-1. 本地构建（build）—>打包镜像（save）—>上传镜像到服务器—>读取镜像（load）
+1. 本地构建（build）—>打包镜像（save）—>上传镜像到服务器（使用sftp的put命令）—>读取镜像（load）
 2. 本地构建（build）—>推送镜像仓库（push）—>服务器从镜像仓库拉取镜像（pull）——**常用**
 3. 本地代码上传代码到git远程仓库（git push）—>服务器从git远程仓库拉取代码（git pull）—>服务器构建（build）——**慎用**
 
@@ -345,7 +357,10 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' 
 当然，时区问题也可以直接Dockerfile文件的final阶段执行以下命令，这样就不需要每次发布都手动同步时区了
 
 ```shell
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
+# 2026-08-04修正
+WORKDIR /app
+USER root
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' > /etc/timezone
 ```
 
 ##### nginx反向代理
@@ -353,6 +368,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shangh
 通过上面的一通操作，我们已经成功启动.net core程序，并且分配端口为5000。我们需要访问`http://127.0.0.1:5000`才能正常访问，那怎样做将端口去掉（将端口设为80，访问时端口80可忽略）也能正常访问.net core程序呢？nginx就派上用场了
 
 因为我们上面已经将nginx配置文件挂载到宿主机磁盘，我们直接改宿主机的nginx配置文件即可
+
+2028-08-04修正：尽量不要配置：proxy_pass http://119.45.xx.xx:5000;。这样需要开放5000端口。建议使用日期默认ip：172.17.0.1，不需要开放端扣
 
 ```shell
 # 修改挂载在本地nginx配置文件的内容
@@ -363,7 +380,7 @@ vim /usr/local/docker/nginx/conf/nginx.conf
     listen 80;
     server_name 119.45.xx.xx; # 可以改成域名
     location / {
-      proxy_pass http://119.45.xx.xx:5000;
+      proxy_pass http://172.17.0.1:5000;
     }
   }
 
@@ -383,9 +400,16 @@ nginx配置文件修改内容
 
 涉及到多个服务操作，如果每次都需要单独执行docker run来启动，那就太麻烦了。我们可以使用docker-compose来管理我们的服务
 
+2028-08-06修正：docker compose迎来第二个版本，建议使用第二个版本
+
+- **Docker Compose v1**：它是基于 Python 开发的独立二进制文件，调用命令带连字符：`docker-compose`。该版本已于 2023 年停止维护，尽量淘汰
+- **Docker Compose v2**：它是用 Go 语言重写的 Docker 插件，调用命令不带连字符：`docker compose`，建议使用
+
+**现在的原则很简单：永远优先使用 V2，并习惯使用空格替代连字符，命令基本一样的。
+
 ##### docker-compose安装卸载
 
-安装
+docker-compose安装
 
 ```shell
 # 下载docker-compose
@@ -407,6 +431,15 @@ docker-compose --version
 ```shell
 # 卸载docker-compose
 rm /usr/local/bin/docker-compose
+```
+
+##### docker compose新版安装
+
+```shell
+# 安装docker compose插件。注意这是新版的，不带-
+sudo apt install -y docker-compose-plugin
+# 查看版本
+docker compose version
 ```
 
 ##### 编写docker-compose.yaml
